@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Wind, Zap, Trees, TrendingDown, Globe2, AlertTriangle, ChevronRight, Factory, Fuel, GraduationCap, Ship, Waves, Battery } from 'lucide-react';
-import DarkBackground from './DarkBackground';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Perspective = 'historian' | 'physicist';
 
@@ -34,19 +37,38 @@ export default function Chapter4() {
     },
   ];
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach((section) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+          },
+        }
+      );
+    });
+  }, [activePerspective]);
+
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden">
-      <DarkBackground />
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white via-green-50/30 to-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block mb-6 px-6 py-2 bg-green-500/20 backdrop-blur-xl rounded-full border border-green-400/30">
-            <span className="text-sm font-bold text-green-400">Chapter 4</span>
+          <div className="inline-block mb-6 px-6 py-2 bg-green-100 rounded-full border-2 border-green-300">
+            <span className="text-sm font-bold text-green-600">Chapter 4</span>
           </div>
-          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-400">
+          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">
             Imagine a World Without Oil
           </h2>
-          <p className="text-2xl text-white/70 font-semibold">Alternate histories and possibilities</p>
+          <p className="text-2xl text-slate-700 font-semibold">Alternate histories and possibilities</p>
         </div>
 
         <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-green-200">

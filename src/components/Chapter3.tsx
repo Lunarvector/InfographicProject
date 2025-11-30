@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { CokerModel } from './CokerModel';
 import { Factory, Flame, Sparkles, TrendingUp, Smartphone, Package, Pill, Wheat } from 'lucide-react';
-import DarkBackground from './DarkBackground';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Chapter3() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -51,19 +54,58 @@ export default function Chapter3() {
     },
   ];
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach((section) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    });
+
+    const timeline = document.querySelectorAll('.timeline-item');
+    timeline.forEach((item, index) => {
+      gsap.fromTo(
+        item,
+        { opacity: 0, x: -100 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          delay: index * 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden">
-      <DarkBackground />
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white via-orange-50/30 to-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block mb-6 px-6 py-2 bg-orange-500/20 backdrop-blur-xl rounded-full border border-orange-400/30">
-            <span className="text-sm font-bold text-orange-400">Chapter 3</span>
+          <div className="inline-block mb-6 px-6 py-2 bg-orange-100 rounded-full border-2 border-orange-300">
+            <span className="text-sm font-bold text-orange-600">Chapter 3</span>
           </div>
-          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
+          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-600">
             How Oil Got Into Everything
           </h2>
-          <p className="text-2xl text-white/70 font-semibold">From refinery to everyday life</p>
+          <p className="text-2xl text-slate-700 font-semibold">From refinery to everyday life</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
@@ -72,8 +114,8 @@ export default function Chapter3() {
               <Factory className="text-orange-500" size={32} />
               The CHS Coker
             </h3>
-            <div className="flex justify-center mb-6 bg-slate-50 rounded-2xl p-4 border-2 border-slate-200">
-              <Canvas camera={{ position: [5, 3, 8], fov: 75 }} style={{ width: '100%', height: '400px' }}>
+            <div className="animate-on-scroll flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 border-2 border-orange-200">
+              <Canvas camera={{ position: [0, 0, 12], fov: 50 }} style={{ width: '100%', height: '600px' }}>
                 <ambientLight intensity={0.7} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
                 <CokerModel />
@@ -189,10 +231,10 @@ export default function Chapter3() {
                   <button
                     key={index}
                     onClick={() => setTimelineYear(event.year)}
-                    className={`relative ml-16 p-6 rounded-2xl border-2 transition-all duration-500 text-left transform hover:scale-105 ${
+                    className={`timeline-item relative ml-16 p-6 rounded-2xl border-2 transition-all duration-500 text-left transform hover:scale-105 ${
                       timelineYear === event.year
                         ? 'border-yellow-500 bg-yellow-100 scale-105 shadow-lg'
-                        : 'border-slate-300 bg-slate-50 hover:border-yellow-400'
+                        : 'border-slate-300 bg-white hover:border-yellow-400 hover:shadow-xl'
                     }`}
                   >
                     <div className="absolute -left-12 top-6 w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center border-4 border-white shadow-lg z-10">

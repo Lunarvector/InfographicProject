@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { TrendingUp, Users, Gauge, Coins, ArrowUp, Mountain, Waves, Circle, BarChart, Scale, MessageCircle, TrendingDown, Building2 } from 'lucide-react';
-import DarkBackground from './DarkBackground';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Chapter2() {
   const [activeCard, setActiveCard] = useState(0);
@@ -25,19 +28,38 @@ export default function Chapter2() {
     { location: 'Oil Sands', cost: 72, range: '70-75', icon: Circle, color: '#fbcfe8' },
   ];
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach((section) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 80 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+          },
+        }
+      );
+    });
+  }, [activeCard]);
+
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden">
-      <DarkBackground />
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block mb-6 px-6 py-2 bg-blue-500/20 backdrop-blur-xl rounded-full border border-blue-400/30">
-            <span className="text-sm font-bold text-blue-400">Chapter 2</span>
+          <div className="inline-block mb-6 px-6 py-2 bg-blue-100 rounded-full border-2 border-blue-300">
+            <span className="text-sm font-bold text-blue-600">Chapter 2</span>
           </div>
-          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
             The Price of Oil
           </h2>
-          <p className="text-2xl text-white/70 font-semibold">How Wall Street meets Main Street</p>
+          <p className="text-2xl text-slate-700 font-semibold">How Wall Street meets Main Street</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">

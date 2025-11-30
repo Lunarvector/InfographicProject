@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Fuel, Zap, Hammer, TrendingUp, Wrench, Factory, Wheat, Droplet } from 'lucide-react';
-import DarkBackground from './DarkBackground';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Conclusion() {
   const carCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -133,16 +136,35 @@ export default function Conclusion() {
     };
   }, []);
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach((section) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+          },
+        }
+      );
+    });
+  }, [showMilkshake]);
+
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden">
-      <DarkBackground />
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white via-yellow-50/30 to-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
+          <h2 className="text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-orange-600">
             The Journey Complete
           </h2>
-          <p className="text-2xl text-white/70 font-semibold">From Kansas well to your gas tank</p>
+          <p className="text-2xl text-slate-700 font-semibold">From Kansas well to your gas tank</p>
         </div>
 
         <div className="bg-white rounded-3xl p-10 shadow-xl border-2 border-yellow-400 mb-12">

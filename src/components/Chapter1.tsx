@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { MapPin, DollarSign, Droplets, Zap, Building2, Search, Handshake, Wheat, UserCircle, Fuel } from 'lucide-react';
-import DarkBackground from './DarkBackground';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Chapter1() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -108,24 +111,45 @@ export default function Chapter1() {
     };
   }, []);
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach((section) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden">
-      <DarkBackground />
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white via-rose-50/30 to-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block mb-6 px-6 py-2 bg-rose-500/20 backdrop-blur-xl rounded-full border border-rose-400/30">
-            <span className="text-sm font-bold text-rose-400">Chapter 1</span>
+          <div className="inline-block mb-6 px-6 py-2 bg-rose-100 rounded-full border-2 border-rose-300">
+            <span className="text-sm font-bold text-rose-600">Chapter 1</span>
           </div>
-          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">
+          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-orange-600">
             We Buy Oil
           </h2>
-          <p className="text-2xl text-white/70 font-semibold">Kansas, where it all began</p>
+          <p className="text-2xl text-slate-700 font-semibold">Kansas, where it all began</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div className="space-y-8">
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 shadow-xl border-2 border-white/10 hover:shadow-2xl transition-all duration-300">
+            <div className="animate-on-scroll bg-white rounded-3xl p-8 shadow-2xl border-2 border-rose-200 hover:shadow-3xl hover:scale-[1.02] transition-all duration-500">
               <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
                 <MapPin className="text-rose-500" size={32} />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">
