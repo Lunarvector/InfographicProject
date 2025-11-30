@@ -179,9 +179,9 @@ export default function Chapter3() {
             {timeline.map((event, index) => (
               <div
                 key={index}
-                className="relative p-8 rounded-3xl border-2 border-yellow-400 bg-gradient-to-br from-yellow-100 to-yellow-50 shadow-[0_0_30px_rgba(234,179,8,0.5)] text-left"
+                className="relative p-8 rounded-3xl border-2 border-yellow-400 bg-gradient-to-br from-yellow-100 to-yellow-50 shadow-xl text-left"
               >
-                <div className="text-6xl font-black mb-4 text-yellow-600 drop-shadow-[0_0_10px_rgba(234,179,8,0.8)]">
+                <div className="text-6xl font-black mb-4 text-yellow-600">
                   {event.year}
                 </div>
                 <div className="text-2xl font-bold mb-3 text-slate-900">
@@ -190,7 +190,6 @@ export default function Chapter3() {
                 <p className="text-slate-700 leading-relaxed text-sm">
                   {event.desc}
                 </p>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-500 rounded-full animate-pulse shadow-lg" />
               </div>
             ))}
           </div>

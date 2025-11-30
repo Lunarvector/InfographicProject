@@ -119,72 +119,44 @@ export default function Chapter1() {
           <p className="text-3xl text-slate-600 font-bold">Kansas, where it all began</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-gradient-to-br from-cyan-50 to-sky-50 rounded-3xl p-8 shadow-2xl border-2 border-cyan-300">
-            <h3 className="text-4xl font-black mb-8 flex items-center gap-3 text-cyan-700">
-              <MapPin className="text-cyan-600" size={40} />
-              The Journey
-            </h3>
-              <div className="space-y-4">
-                {journey.map((stop, index) => {
-                  const Icon = stop.icon;
-                  return (
-                  <div
-                    key={index}
-                    className="w-full flex items-start gap-4 p-6 rounded-2xl bg-gradient-to-r from-cyan-100 to-sky-100 border-2 border-cyan-400 shadow-lg"
-                  >
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 bg-cyan-500 text-white shadow-lg">
-                      <Icon size={24} />
-                    </div>
-                    <div className="text-left">
-                      <div className="font-black text-xl text-slate-900">{stop.city}</div>
-                      <div className="text-sm text-slate-700 font-semibold">{stop.desc}</div>
-                    </div>
-                  </div>
-                  );
-                })}
+        <div className="mb-16">
+          <div className="h-[400px] rounded-3xl overflow-hidden mb-8">
+            <OilPumpSpline />
+          </div>
+
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-2xl border-2 border-purple-300">
+            <h4 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
+              The Pumping Unit
+            </h4>
+
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl border-2 border-purple-400 text-center shadow-lg">
+                <div className="font-black text-sm text-purple-900">Type</div>
+                <div className="text-lg text-purple-700 font-black">Stripper</div>
+              </div>
+              <div className="p-4 bg-gradient-to-br from-pink-100 to-pink-50 rounded-xl border-2 border-pink-400 text-center shadow-lg">
+                <div className="font-black text-sm text-pink-900">Output</div>
+                <div className="text-lg text-pink-700 font-black">1-2 bbl/day</div>
+              </div>
+              <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl border-2 border-blue-400 text-center shadow-lg">
+                <div className="font-black text-sm text-blue-900">Depth</div>
+                <div className="text-lg text-blue-700 font-black">½ mile</div>
+              </div>
+            </div>
+
+            <div className="grid lg:grid-cols-[2fr,1fr] gap-6 items-center">
+              <canvas ref={canvasRef} className="rounded-2xl bg-white shadow-lg w-full" style={{ height: '400px' }} />
+
+              <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-2xl p-6 border-2 border-amber-400 shadow-xl">
+                <p className="text-sm leading-relaxed">
+                  <span className="text-2xl font-black text-amber-700 block mb-2">💰 Key Fact</span>
+                  <span className="text-slate-800 font-semibold">NPR management "freaked out" about potential oil spills. The team carried </span>
+                  <span className="text-xl font-black text-amber-600">$10,000 cash</span>
+                  <span className="text-slate-800 font-semibold"> in a briefcase for the purchase.</span>
+                </p>
               </div>
             </div>
           </div>
-
-          <div className="space-y-8">
-            <div className="bg-gradient-to-br from-cyan-50 to-sky-100 rounded-3xl p-6 shadow-2xl border-2 border-cyan-300 h-[500px]">
-              <OilPumpSpline />
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-6 shadow-2xl border-2 border-purple-300">
-              <div className="flex justify-between items-center mb-4">
-                <h4 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                  The Pumping Unit
-                </h4>
-                <canvas ref={canvasRef} className="rounded-lg bg-white shadow-lg" style={{ width: '200px', height: '200px' }} />
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl border-2 border-purple-400 text-center shadow-lg">
-                  <div className="font-black text-sm text-purple-900">Type</div>
-                  <div className="text-lg text-purple-700 font-black">Stripper</div>
-                </div>
-                <div className="p-4 bg-gradient-to-br from-pink-100 to-pink-50 rounded-xl border-2 border-pink-400 text-center shadow-lg">
-                  <div className="font-black text-sm text-pink-900">Output</div>
-                  <div className="text-lg text-pink-700 font-black">1-2 bbl</div>
-                </div>
-                <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl border-2 border-blue-400 text-center shadow-lg">
-                  <div className="font-black text-sm text-blue-900">Depth</div>
-                  <div className="text-lg text-blue-700 font-black">½ mile</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative bg-gradient-to-br from-amber-100 to-yellow-100 rounded-3xl p-10 border-2 border-amber-400 mb-16 shadow-2xl overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-300/20 rounded-full blur-3xl"></div>
-          <p className="text-lg leading-relaxed relative z-10">
-            <span className="text-4xl font-black text-amber-700 block mb-2">💰 Key Fact</span>
-            <span className="text-slate-800 font-semibold">NPR management "freaked out" about potential oil spills. The team carried </span>
-            <span className="text-2xl font-black text-amber-600">$10,000 cash</span>
-            <span className="text-slate-800 font-semibold"> in a briefcase for the purchase.</span>
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
@@ -310,6 +282,7 @@ export default function Chapter1() {
               );
             })}
           </div>
+        </div>
 
       </div>
     </section>
