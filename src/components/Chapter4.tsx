@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Wind, Zap, Trees, TrendingDown, Globe2, AlertTriangle, ChevronRight, Factory, Fuel, GraduationCap, Ship, Waves, Battery } from 'lucide-react';
 
-type Perspective = 'historian' | 'physicist';
-
 export default function Chapter4() {
-  const [activePerspective, setActivePerspective] = useState<Perspective>('historian');
 
   const frackingImpacts = [
     {
@@ -113,39 +110,16 @@ export default function Chapter4() {
         </div>
 
         <div className="mb-16">
-          <h3 className="text-5xl font-black mb-12 text-center text-slate-900">The Great Debate</h3>
-          <p className="text-center text-xl text-slate-700 mb-12 font-semibold max-w-3xl mx-auto">
+          <h3 className="text-6xl font-black mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            The Great Debate
+          </h3>
+          <p className="text-center text-2xl text-slate-700 mb-16 font-bold max-w-4xl mx-auto leading-relaxed">
             Could we have built our modern world without fossil fuels?
           </p>
 
-          <div className="flex gap-4 mb-12 justify-center flex-col sm:flex-row">
-            <button
-              onClick={() => setActivePerspective('historian')}
-              className={`px-8 py-5 rounded-2xl font-black text-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
-                activePerspective === 'historian'
-                  ? 'bg-gradient-to-r from-blue-500 to-blue-400 text-white shadow-xl scale-105'
-                  : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-              }`}
-            >
-              <GraduationCap size={24} />
-              Historian&apos;s View
-            </button>
-            <button
-              onClick={() => setActivePerspective('physicist')}
-              className={`px-8 py-5 rounded-2xl font-black text-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
-                activePerspective === 'physicist'
-                  ? 'bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-xl scale-105'
-                  : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-              }`}
-            >
-              <Zap size={24} />
-              Physicist&apos;s View
-            </button>
-          </div>
-
-          <div className="relative">
-            {activePerspective === 'historian' ? (
-              <div className="bg-gradient-to-br from-blue-100 to-blue-50 p-10 rounded-3xl border-2 border-blue-400 shadow-xl animate-fade-in">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-10 rounded-3xl border-3 border-blue-300 shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <div className="bg-gradient-to-br from-blue-100 to-blue-50 p-10 rounded-3xl border-2 border-blue-400 shadow-xl">
                 <div className="flex items-center gap-4 mb-8">
                   <GraduationCap size={64} className="text-blue-700" />
                   <div>
@@ -189,8 +163,10 @@ export default function Chapter4() {
                   </div>
                 </div>
               </div>
-            ) : (
-              <div className="bg-gradient-to-br from-orange-100 to-orange-50 p-10 rounded-3xl border-2 border-orange-400 shadow-xl animate-fade-in">
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-10 rounded-3xl border-3 border-orange-300 shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <div className="bg-gradient-to-br from-orange-100 to-orange-50 p-10 rounded-3xl border-2 border-orange-400 shadow-xl">
                 <div className="flex items-center gap-4 mb-8">
                   <Zap size={64} className="text-orange-700" />
                   <div>
@@ -251,7 +227,7 @@ export default function Chapter4() {
                   </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
 
