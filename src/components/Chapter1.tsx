@@ -123,7 +123,7 @@ export default function Chapter1() {
           <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8">
             <OilPumpSpline />
 
-            <div className="absolute bottom-6 right-6 w-32 h-32 bg-white rounded-2xl shadow-2xl border-2 border-slate-200">
+            <div className="absolute bottom-4 right-4 w-40 h-20 bg-white rounded-2xl shadow-2xl border-2 border-slate-200">
             </div>
           </div>
 

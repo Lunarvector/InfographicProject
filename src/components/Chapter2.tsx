@@ -159,7 +159,8 @@ export default function Chapter2() {
               return (
               <div
                 key={index}
-                className="relative overflow-hidden rounded-2xl p-8 border-2 border-slate-300 bg-slate-50 shadow-lg"
+                className="relative overflow-hidden rounded-2xl p-8 border-2 border-slate-300 shadow-lg"
+                style={{ backgroundColor: item.color }}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
@@ -169,7 +170,7 @@ export default function Chapter2() {
                       <div className="text-sm text-slate-600 font-semibold">Range: ${item.range}/barrel</div>
                     </div>
                   </div>
-                  <div className="text-4xl font-black text-yellow-600">${item.cost}</div>
+                  <div className="text-4xl font-black text-slate-900">${item.cost}</div>
                 </div>
               </div>
               );

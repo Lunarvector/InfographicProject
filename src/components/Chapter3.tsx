@@ -82,16 +82,6 @@ export default function Chapter3() {
                   molecules.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-red-50 p-2 rounded-lg border border-red-300">
-                  <div className="font-black text-red-600 text-sm">🔥 840°F</div>
-                  <div className="text-xs text-slate-600">Sear</div>
-                </div>
-                <div className="bg-blue-50 p-2 rounded-lg border border-blue-300">
-                  <div className="font-black text-blue-600 text-sm">❄️ 360°F</div>
-                  <div className="text-xs text-slate-600">Bake</div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -140,23 +130,34 @@ export default function Chapter3() {
           <p className="text-center text-slate-700 mb-8 font-semibold text-lg">
             Hover over items to discover their petroleum connections
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {oilProducts.map((item, index) => {
               const Icon = item.icon;
+              const pastelColors = [
+                { bg: 'bg-rose-100', border: 'border-rose-300', icon: 'text-rose-600', hover: 'group-hover:border-rose-500' },
+                { bg: 'bg-blue-100', border: 'border-blue-300', icon: 'text-blue-600', hover: 'group-hover:border-blue-500' },
+                { bg: 'bg-emerald-100', border: 'border-emerald-300', icon: 'text-emerald-600', hover: 'group-hover:border-emerald-500' },
+                { bg: 'bg-amber-100', border: 'border-amber-300', icon: 'text-amber-600', hover: 'group-hover:border-amber-500' },
+                { bg: 'bg-purple-100', border: 'border-purple-300', icon: 'text-purple-600', hover: 'group-hover:border-purple-500' },
+                { bg: 'bg-pink-100', border: 'border-pink-300', icon: 'text-pink-600', hover: 'group-hover:border-pink-500' },
+                { bg: 'bg-cyan-100', border: 'border-cyan-300', icon: 'text-cyan-600', hover: 'group-hover:border-cyan-500' },
+                { bg: 'bg-indigo-100', border: 'border-indigo-300', icon: 'text-indigo-600', hover: 'group-hover:border-indigo-500' },
+              ];
+              const color = pastelColors[index % pastelColors.length];
               return (
               <div
                 key={index}
-                className="group relative p-6 rounded-2xl border-2 border-slate-300 bg-slate-50 hover:border-purple-500 hover:bg-purple-100 hover:scale-105 transition-all duration-300 transform cursor-pointer"
+                className={`group relative p-8 rounded-3xl border-3 ${color.border} ${color.bg} ${color.hover} hover:scale-105 hover:shadow-2xl transition-all duration-300 transform cursor-pointer`}
               >
-                <div className="flex justify-center mb-3">
-                  <Icon size={48} className="text-purple-600 group-hover:scale-110 transition-transform" />
+                <div className="flex justify-center mb-4">
+                  <Icon size={56} className={`${color.icon} group-hover:scale-110 transition-transform`} />
                 </div>
-                <div className="font-black text-base text-center text-slate-900">{item.name}</div>
+                <div className={`font-black text-lg text-center ${color.icon}`}>{item.name}</div>
 
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="font-black text-sm mb-2">{item.name}</div>
-                  <p className="text-xs leading-relaxed">{item.desc}</p>
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-pink-600"></div>
+                <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-96 p-6 bg-white rounded-2xl shadow-2xl border-3 ${color.border} opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50`}>
+                  <div className={`font-black text-lg mb-3 ${color.icon}`}>{item.name}</div>
+                  <p className="text-sm leading-relaxed text-slate-700">{item.desc}</p>
+                  <div className={`absolute top-full left-1/2 -translate-x-1/2 -mt-3 w-0 h-0 border-l-[12px] border-r-[12px] border-t-[12px] border-l-transparent border-r-transparent border-t-white`}></div>
                 </div>
               </div>
               );
