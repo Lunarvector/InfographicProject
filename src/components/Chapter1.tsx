@@ -123,30 +123,7 @@ export default function Chapter1() {
           <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8">
             <OilPumpSpline />
 
-            <div className="absolute top-16 left-20 bg-gradient-to-br from-cyan-50/95 to-sky-50/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border-2 border-cyan-300 max-w-md">
-              <h3 className="text-4xl font-black mb-6 flex items-center gap-3 text-cyan-700">
-                <MapPin className="text-cyan-600" size={40} />
-                The Journey
-              </h3>
-              <div className="space-y-4">
-                {journey.map((stop, index) => {
-                  const Icon = stop.icon;
-                  return (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 p-5 rounded-xl bg-gradient-to-r from-cyan-100/90 to-sky-100/90 border-2 border-cyan-400 shadow-lg"
-                  >
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 bg-cyan-500 text-white shadow-lg">
-                      <Icon size={24} />
-                    </div>
-                    <div className="text-left">
-                      <div className="font-black text-lg text-slate-900">{stop.city}</div>
-                      <div className="text-sm text-slate-700 font-semibold">{stop.desc}</div>
-                    </div>
-                  </div>
-                  );
-                })}
-              </div>
+            <div className="absolute bottom-6 right-6 w-32 h-32 bg-white rounded-2xl shadow-2xl border-2 border-slate-200">
             </div>
           </div>
 

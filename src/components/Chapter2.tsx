@@ -1,15 +1,6 @@
-import { useState, useEffect } from 'react';
 import { TrendingUp, Users, Gauge, Coins, ArrowUp, Mountain, Waves, Circle, BarChart, Scale, MessageCircle, TrendingDown, Building2 } from 'lucide-react';
 
 export default function Chapter2() {
-  const [activeCard, setActiveCard] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveCard((prev) => (prev + 1) % 4);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   const traderSlang = [
     { term: 'Bag', meaning: '1,000 barrels', icon: Coins },
