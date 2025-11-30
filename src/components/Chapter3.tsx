@@ -55,8 +55,8 @@ export default function Chapter3() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500 drop-shadow-lg">
-            How Oil Got Into Everything
+          <h2 className="text-6xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500 drop-shadow-lg leading-tight">
+            How Oil Got<br/>Into Everything
           </h2>
           <p className="text-3xl text-slate-600 font-bold">From refinery to everyday life</p>
         </div>
@@ -67,8 +67,8 @@ export default function Chapter3() {
               <Factory className="text-orange-500" size={32} />
               The CHS Coker
             </h3>
-            <div className="flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border-2 border-orange-200 shadow-xl">
-              <Canvas camera={{ position: [0, 0, 12], fov: 50 }} style={{ width: '100%', height: '700px' }}>
+            <div className="flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-6 border-2 border-orange-200 shadow-xl">
+              <Canvas camera={{ position: [0, 0, 12], fov: 50 }} style={{ width: '100%', height: '500px' }}>
                 <ambientLight intensity={0.7} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
                 <CokerModel />
@@ -82,14 +82,14 @@ export default function Chapter3() {
                   molecules.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-red-50 p-3 rounded-xl border-2 border-red-300">
-                  <div className="font-black text-red-600 text-lg">🔥 840°F</div>
-                  <div className="text-xs text-slate-600">Sear a steak</div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-red-50 p-2 rounded-lg border border-red-300">
+                  <div className="font-black text-red-600 text-sm">🔥 840°F</div>
+                  <div className="text-xs text-slate-600">Sear</div>
                 </div>
-                <div className="bg-blue-50 p-3 rounded-xl border-2 border-blue-300">
-                  <div className="font-black text-blue-600 text-lg">❄️ 360°F</div>
-                  <div className="text-xs text-slate-600">Bake a cake</div>
+                <div className="bg-blue-50 p-2 rounded-lg border border-blue-300">
+                  <div className="font-black text-blue-600 text-sm">❄️ 360°F</div>
+                  <div className="text-xs text-slate-600">Bake</div>
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function Chapter3() {
           <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3">
             <Sparkles className="text-purple-500" size={40} />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-              Oil Is In Everything
+              Oil Is In<br/>Everything
             </span>
           </h3>
           <p className="text-center text-slate-700 mb-8 font-semibold text-lg">
@@ -177,32 +177,21 @@ export default function Chapter3() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {timeline.map((event, index) => (
-              <button
+              <div
                 key={index}
-                onClick={() => setTimelineYear(event.year)}
-                className={`group relative p-8 rounded-3xl border-2 transition-all duration-300 text-left transform hover:scale-105 ${
-                  timelineYear === event.year
-                    ? 'border-yellow-500 bg-gradient-to-br from-yellow-50 to-orange-50 shadow-2xl scale-105'
-                    : 'border-slate-200 bg-white hover:border-yellow-300 hover:shadow-xl'
-                }`}
+                className="relative p-8 rounded-3xl border-2 border-yellow-400 bg-gradient-to-br from-yellow-100 to-yellow-50 shadow-[0_0_30px_rgba(234,179,8,0.5)] text-left"
               >
-                <div className={`text-6xl font-black mb-4 transition-colors ${
-                  timelineYear === event.year ? 'text-yellow-600' : 'text-slate-300 group-hover:text-yellow-500'
-                }`}>
+                <div className="text-6xl font-black mb-4 text-yellow-600 drop-shadow-[0_0_10px_rgba(234,179,8,0.8)]">
                   {event.year}
                 </div>
-                <div className={`text-2xl font-bold mb-3 transition-colors ${
-                  timelineYear === event.year ? 'text-slate-900' : 'text-slate-700'
-                }`}>
+                <div className="text-2xl font-bold mb-3 text-slate-900">
                   {event.title}
                 </div>
-                <p className="text-slate-600 leading-relaxed text-sm">
+                <p className="text-slate-700 leading-relaxed text-sm">
                   {event.desc}
                 </p>
-                {timelineYear === event.year && (
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-500 rounded-full animate-pulse shadow-lg" />
-                )}
-              </button>
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-500 rounded-full animate-pulse shadow-lg" />
+              </div>
             ))}
           </div>
         </div>

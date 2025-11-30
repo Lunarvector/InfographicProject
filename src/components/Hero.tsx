@@ -5,7 +5,9 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <SplineBackground />
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-[5]" />
+      <div className="absolute bottom-8 right-8 bg-white px-6 py-3 rounded-xl shadow-2xl z-[5]">
+        <p className="text-slate-900 font-bold text-lg">By: Andrew M</p>
+      </div>
 
       <div className="relative z-10 text-center px-4 pointer-events-none max-w-7xl mx-auto">
         <h1 className="text-7xl md:text-9xl lg:text-[11rem] font-black mb-12 leading-[0.85] tracking-tighter">

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { MapPin, DollarSign, Droplets, Zap, Building2, Search, Handshake, Wheat, UserCircle, Fuel } from 'lucide-react';
+import OilPumpSpline from './OilPumpSpline';
 
 export default function Chapter1() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -119,14 +120,13 @@ export default function Chapter1() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="space-y-8">
-            <div className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-rose-200 hover:shadow-3xl hover:scale-[1.02] transition-all duration-500">
-              <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
-                <MapPin className="text-rose-500" size={32} />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">
-                  The Journey
-                </span>
-              </h3>
+          <div className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-rose-200">
+            <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
+              <MapPin className="text-rose-500" size={32} />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">
+                The Journey
+              </span>
+            </h3>
               <div className="space-y-4">
                 {journey.map((stop, index) => (
                   <button
@@ -158,38 +158,44 @@ export default function Chapter1() {
                 ))}
               </div>
             </div>
-
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-8 border-2 border-amber-300">
-              <p className="text-sm leading-relaxed">
-                <span className="font-black text-rose-600">Key fact:</span> NPR management "freaked out" about potential
-                oil spills. The team carried <span className="font-bold text-amber-600">$10,000 cash</span> in a briefcase
-                for the purchase.
-              </p>
-            </div>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-purple-200 flex flex-col items-center">
-              <h4 className="text-2xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                The Pumping Unit
-              </h4>
-              <canvas ref={canvasRef} className="rounded-2xl bg-slate-50" />
-              <div className="mt-6 w-full space-y-3">
-                <div className="flex items-center justify-between p-3 bg-purple-100 rounded-xl border border-purple-300">
-                  <span className="font-bold text-purple-900">Type:</span>
-                  <span className="text-purple-700">Stripper Well</span>
+          <div className="space-y-8">
+            <div className="bg-white rounded-3xl p-6 shadow-xl border-2 border-orange-200 h-[500px]">
+              <OilPumpSpline />
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 shadow-xl border-2 border-purple-200">
+              <div className="flex justify-between items-center mb-4">
+                <h4 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                  The Pumping Unit
+                </h4>
+                <canvas ref={canvasRef} className="rounded-lg bg-slate-50" style={{ width: '200px', height: '200px' }} />
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="p-3 bg-purple-100 rounded-xl border border-purple-300 text-center">
+                  <div className="font-bold text-xs text-purple-900">Type</div>
+                  <div className="text-sm text-purple-700 font-bold">Stripper</div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-pink-100 rounded-xl border border-pink-300">
-                  <span className="font-bold text-pink-900">Output:</span>
-                  <span className="text-pink-700">1-2 barrels/day</span>
+                <div className="p-3 bg-pink-100 rounded-xl border border-pink-300 text-center">
+                  <div className="font-bold text-xs text-pink-900">Output</div>
+                  <div className="text-sm text-pink-700 font-bold">1-2 bbl/day</div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-blue-100 rounded-xl border border-blue-300">
-                  <span className="font-bold text-blue-900">Depth:</span>
-                  <span className="text-blue-700">½ mile down</span>
+                <div className="p-3 bg-blue-100 rounded-xl border border-blue-300 text-center">
+                  <div className="font-bold text-xs text-blue-900">Depth</div>
+                  <div className="text-sm text-blue-700 font-bold">½ mile</div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-8 border-2 border-amber-300 mb-16">
+          <p className="text-sm leading-relaxed">
+            <span className="font-black text-rose-600">Key fact:</span> NPR management "freaked out" about potential
+            oil spills. The team carried <span className="font-bold text-amber-600">$10,000 cash</span> in a briefcase
+            for the purchase.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
@@ -300,20 +306,20 @@ export default function Chapter1() {
             ].map((person, index) => {
               const Icon = person.icon;
               return (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
-              >
-                <div className="flex justify-center mb-4">
-                  <Icon size={48} className="text-purple-600" />
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl p-6 border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
+                >
+                  <div className="flex justify-center mb-4">
+                    <Icon size={48} className="text-purple-600" />
+                  </div>
+                  <div className="font-bold text-lg text-slate-900">{person.name}</div>
+                  <div className="text-sm text-slate-600 font-semibold">{person.role}</div>
                 </div>
-                <div className="font-bold text-lg text-slate-900">{person.name}</div>
-                <div className="text-sm text-slate-600 font-semibold">{person.role}</div>
-              </div>
-            );
+              );
             })}
           </div>
-        </div>
+
       </div>
     </section>
   );
