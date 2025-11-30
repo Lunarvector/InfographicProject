@@ -1,11 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { CokerModel } from './CokerModel';
 import { Factory, Flame, Sparkles, TrendingUp, Smartphone, Package, Pill, Wheat } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Chapter3() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -54,58 +50,15 @@ export default function Chapter3() {
     },
   ];
 
-  useEffect(() => {
-    const sections = document.querySelectorAll('.animate-on-scroll');
-    sections.forEach((section) => {
-      gsap.fromTo(
-        section,
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    });
-
-    const timeline = document.querySelectorAll('.timeline-item');
-    timeline.forEach((item, index) => {
-      gsap.fromTo(
-        item,
-        { opacity: 0, x: -100 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          delay: index * 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-          },
-        }
-      );
-    });
-  }, []);
-
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white via-orange-50/30 to-white">
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block mb-6 px-6 py-2 bg-orange-100 rounded-full border-2 border-orange-300">
-            <span className="text-sm font-bold text-orange-600">Chapter 3</span>
-          </div>
-          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-600">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500 drop-shadow-lg">
             How Oil Got Into Everything
           </h2>
-          <p className="text-2xl text-slate-700 font-semibold">From refinery to everyday life</p>
+          <p className="text-3xl text-slate-600 font-bold">From refinery to everyday life</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
@@ -114,8 +67,8 @@ export default function Chapter3() {
               <Factory className="text-orange-500" size={32} />
               The CHS Coker
             </h3>
-            <div className="animate-on-scroll flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 border-2 border-orange-200">
-              <Canvas camera={{ position: [0, 0, 12], fov: 50 }} style={{ width: '100%', height: '600px' }}>
+            <div className="flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border-2 border-orange-200 shadow-xl">
+              <Canvas camera={{ position: [0, 0, 12], fov: 50 }} style={{ width: '100%', height: '700px' }}>
                 <ambientLight intensity={0.7} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
                 <CokerModel />
@@ -219,34 +172,38 @@ export default function Chapter3() {
         </div>
 
         <div className="mb-16">
-          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3">
-            <TrendingUp className="text-yellow-600" size={40} />
+          <h3 className="text-5xl font-black mb-12 text-center text-slate-900">
             The Plastic Revolution
           </h3>
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-yellow-300">
-            <div className="relative">
-              <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-400 via-orange-400 to-red-400" />
-              <div className="space-y-8">
-                {timeline.map((event, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setTimelineYear(event.year)}
-                    className={`timeline-item relative ml-16 p-6 rounded-2xl border-2 transition-all duration-500 text-left transform hover:scale-105 ${
-                      timelineYear === event.year
-                        ? 'border-yellow-500 bg-yellow-100 scale-105 shadow-lg'
-                        : 'border-slate-300 bg-white hover:border-yellow-400 hover:shadow-xl'
-                    }`}
-                  >
-                    <div className="absolute -left-12 top-6 w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center border-4 border-white shadow-lg z-10">
-                      <div className="w-2 h-2 rounded-full bg-yellow-600" />
-                    </div>
-                    <div className="text-3xl font-black mb-2 text-yellow-600">{event.year}</div>
-                    <div className="text-xl font-bold mb-2 text-slate-900">{event.title}</div>
-                    <p className="text-slate-700 leading-relaxed">{event.desc}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {timeline.map((event, index) => (
+              <button
+                key={index}
+                onClick={() => setTimelineYear(event.year)}
+                className={`group relative p-8 rounded-3xl border-2 transition-all duration-300 text-left transform hover:scale-105 ${
+                  timelineYear === event.year
+                    ? 'border-yellow-500 bg-gradient-to-br from-yellow-50 to-orange-50 shadow-2xl scale-105'
+                    : 'border-slate-200 bg-white hover:border-yellow-300 hover:shadow-xl'
+                }`}
+              >
+                <div className={`text-6xl font-black mb-4 transition-colors ${
+                  timelineYear === event.year ? 'text-yellow-600' : 'text-slate-300 group-hover:text-yellow-500'
+                }`}>
+                  {event.year}
+                </div>
+                <div className={`text-2xl font-bold mb-3 transition-colors ${
+                  timelineYear === event.year ? 'text-slate-900' : 'text-slate-700'
+                }`}>
+                  {event.title}
+                </div>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  {event.desc}
+                </p>
+                {timelineYear === event.year && (
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-500 rounded-full animate-pulse shadow-lg" />
+                )}
+              </button>
+            ))}
           </div>
         </div>
 

@@ -67,16 +67,16 @@ export function CokerModel() {
           <meshStandardMaterial color="#999999" metalness={0.6} />
         </mesh>
 
-        <Text position={[-4.5, 4, 0]} fontSize={0.5} color="#4da6ff" anchorX="right" font="/fonts/inter-bold.woff">
+        <Text position={[-4.5, 4, 0]} fontSize={0.5} color="#4da6ff" anchorX="right">
           360°F{'\n'}Light
         </Text>
-        <Text position={[-4.5, 1.5, 0]} fontSize={0.5} color="#ffd700" anchorX="right" font="/fonts/inter-bold.woff">
+        <Text position={[-4.5, 1.5, 0]} fontSize={0.5} color="#ffd700" anchorX="right">
           Gasoline
         </Text>
-        <Text position={[-4.5, -1.5, 0]} fontSize={0.5} color="#ff7f50" anchorX="right" font="/fonts/inter-bold.woff">
+        <Text position={[-4.5, -1.5, 0]} fontSize={0.5} color="#ff7f50" anchorX="right">
           Diesel
         </Text>
-        <Text position={[-4.5, -4, 0]} fontSize={0.5} color="#ff1493" anchorX="right" font="/fonts/inter-bold.woff">
+        <Text position={[-4.5, -4, 0]} fontSize={0.5} color="#ff1493" anchorX="right">
           840°F{'\n'}Heavy
         </Text>
 
