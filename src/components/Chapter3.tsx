@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { CokerModel } from './CokerModel';
 import { Factory, Flame, Sparkles, TrendingUp, Smartphone, Package, Pill, Wheat } from 'lucide-react';
+import DarkBackground from './DarkBackground';
 
 export default function Chapter3() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -51,23 +52,18 @@ export default function Chapter3() {
   ];
 
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-white">
-      <div
-        className="absolute inset-0 z-0 opacity-20"
-        style={{
-          background: 'radial-gradient(circle at 80% 20%, #fed7aa 0%, transparent 50%)',
-        }}
-      />
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden">
+      <DarkBackground />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block mb-6 px-6 py-2 bg-orange-100 rounded-full border border-orange-300">
-            <span className="text-sm font-bold text-orange-600">Chapter 3</span>
+          <div className="inline-block mb-6 px-6 py-2 bg-orange-500/20 backdrop-blur-xl rounded-full border border-orange-400/30">
+            <span className="text-sm font-bold text-orange-400">Chapter 3</span>
           </div>
-          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">
+          <h2 className="text-7xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
             How Oil Got Into Everything
           </h2>
-          <p className="text-2xl text-slate-600 font-semibold">From refinery to everyday life</p>
+          <p className="text-2xl text-white/70 font-semibold">From refinery to everyday life</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">

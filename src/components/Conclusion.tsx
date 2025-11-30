@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Fuel, Zap, Hammer, TrendingUp, Wrench, Factory, Wheat, Droplet } from 'lucide-react';
+import DarkBackground from './DarkBackground';
 
 export default function Conclusion() {
   const carCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -133,20 +134,15 @@ export default function Conclusion() {
   }, []);
 
   return (
-    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white to-yellow-50">
-      <div
-        className="absolute inset-0 z-0 opacity-20"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, #fbbf24 0%, transparent 50%)',
-        }}
-      />
+    <section className="chapter-section min-h-screen py-24 px-6 relative overflow-hidden">
+      <DarkBackground />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">
+          <h2 className="text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
             The Journey Complete
           </h2>
-          <p className="text-2xl text-slate-600 font-semibold">From Kansas well to your gas tank</p>
+          <p className="text-2xl text-white/70 font-semibold">From Kansas well to your gas tank</p>
         </div>
 
         <div className="bg-white rounded-3xl p-10 shadow-xl border-2 border-yellow-400 mb-12">
