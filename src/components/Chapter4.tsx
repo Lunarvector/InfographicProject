@@ -45,7 +45,7 @@ export default function Chapter4() {
         </div>
 
         <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-green-200">
-          <h3 className="text-4xl font-black mb-10 text-center">From Refinery to Your Tank</h3>
+          <h3 className="text-4xl font-black mb-10 text-center text-slate-900">From Refinery to Your Tank</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: Factory, title: 'The Pipeline', desc: '3 mph through J-Hawk Pipeline' },
@@ -54,7 +54,7 @@ export default function Chapter4() {
             ].map((step, idx) => {
               const Icon = step.icon;
               return (
-              <div key={idx} className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border-2 border-blue-300 transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <div key={idx} className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border-2 border-blue-300 shadow-lg">
                 <div className="flex justify-center mb-4">
                   <Icon size={64} className="text-blue-700" />
                 </div>
@@ -67,7 +67,7 @@ export default function Chapter4() {
         </div>
 
         <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-blue-300">
-          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3">
+          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3 text-blue-700">
             <Wind className="text-blue-500" size={40} />
             The Fracking Revolution
           </h3>
@@ -256,7 +256,7 @@ export default function Chapter4() {
         </div>
 
         <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-3xl p-10 border-2 border-green-400 shadow-xl">
-          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3">
+          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3 text-green-700">
             <Trees className="text-green-600" size={40} />
             The Forest Question
           </h3>

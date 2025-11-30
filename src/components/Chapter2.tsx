@@ -163,22 +163,16 @@ export default function Chapter2() {
             Extraction Costs Around the World
           </h3>
           <div className="grid gap-6">
-            {extractionCosts.map((item, index) => (
-              <button
+            {extractionCosts.map((item, index) => {
+              const Icon = item.icon;
+              return (
+              <div
                 key={index}
-                onClick={() => setActiveCard(index)}
-                className={`relative overflow-hidden rounded-2xl p-8 border-2 transition-all duration-500 transform ${
-                  index === activeCard
-                    ? 'scale-105 shadow-2xl border-yellow-400'
-                    : 'hover:scale-102 border-slate-300'
-                } ${index === activeCard ? 'bg-white' : 'bg-slate-50'}`}
+                className="relative overflow-hidden rounded-2xl p-8 border-2 border-slate-300 bg-slate-50 shadow-lg"
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    {(() => {
-                      const Icon = item.icon;
-                      return <Icon size={48} className="text-slate-700" />;
-                    })()}
+                    <Icon size={48} className="text-slate-700" />
                     <div className="text-left">
                       <div className="text-2xl font-black text-slate-900">{item.location}</div>
                       <div className="text-sm text-slate-600 font-semibold">Range: ${item.range}/barrel</div>
@@ -186,23 +180,9 @@ export default function Chapter2() {
                   </div>
                   <div className="text-4xl font-black text-yellow-600">${item.cost}</div>
                 </div>
-
-                <div className="relative h-6 bg-slate-200 rounded-full overflow-hidden border-2 border-slate-300">
-                  <div
-                    className="h-full transition-all duration-500 rounded-full"
-                    style={{
-                      width: `${(item.cost / 75) * 100}%`,
-                      backgroundColor: item.color,
-                    }}
-                  />
-                  <div
-                    className={`absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-white/30 to-transparent transition-all duration-300 ${
-                      index === activeCard ? 'animate-pulse' : ''
-                    }`}
-                  />
-                </div>
-              </button>
-            ))}
+              </div>
+              );
+            })}
           </div>
         </div>
 

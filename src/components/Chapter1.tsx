@@ -123,25 +123,25 @@ export default function Chapter1() {
           <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8">
             <OilPumpSpline />
 
-            <div className="absolute top-6 left-6 bg-gradient-to-br from-cyan-50/95 to-sky-50/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border-2 border-cyan-300 max-w-sm">
-              <h3 className="text-3xl font-black mb-6 flex items-center gap-3 text-cyan-700">
-                <MapPin className="text-cyan-600" size={36} />
+            <div className="absolute top-16 left-20 bg-gradient-to-br from-cyan-50/95 to-sky-50/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border-2 border-cyan-300 max-w-md">
+              <h3 className="text-4xl font-black mb-6 flex items-center gap-3 text-cyan-700">
+                <MapPin className="text-cyan-600" size={40} />
                 The Journey
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {journey.map((stop, index) => {
                   const Icon = stop.icon;
                   return (
                   <div
                     key={index}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-r from-cyan-100/90 to-sky-100/90 border-2 border-cyan-400 shadow-lg"
+                    className="flex items-start gap-4 p-5 rounded-xl bg-gradient-to-r from-cyan-100/90 to-sky-100/90 border-2 border-cyan-400 shadow-lg"
                   >
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-cyan-500 text-white shadow-lg">
-                      <Icon size={20} />
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 bg-cyan-500 text-white shadow-lg">
+                      <Icon size={24} />
                     </div>
                     <div className="text-left">
-                      <div className="font-black text-base text-slate-900">{stop.city}</div>
-                      <div className="text-xs text-slate-700 font-semibold">{stop.desc}</div>
+                      <div className="font-black text-lg text-slate-900">{stop.city}</div>
+                      <div className="text-sm text-slate-700 font-semibold">{stop.desc}</div>
                     </div>
                   </div>
                   );
@@ -157,18 +157,20 @@ export default function Chapter1() {
                   The Pumping Unit
                 </h4>
 
-                <div className="space-y-3 mb-6">
-                  <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl border-2 border-purple-400 shadow-lg">
-                    <div className="font-black text-sm text-purple-900">Type</div>
-                    <div className="text-lg text-purple-700 font-black">Stripper Well</div>
-                  </div>
-                  <div className="p-4 bg-gradient-to-br from-pink-100 to-pink-50 rounded-xl border-2 border-pink-400 shadow-lg">
-                    <div className="font-black text-sm text-pink-900">Output</div>
-                    <div className="text-lg text-pink-700 font-black">1-2 barrels/day</div>
-                  </div>
-                  <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl border-2 border-blue-400 shadow-lg">
-                    <div className="font-black text-sm text-blue-900">Depth</div>
-                    <div className="text-lg text-blue-700 font-black">½ mile down</div>
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl border-2 border-purple-400 shadow-lg p-6 mb-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b-2 border-purple-300">
+                      <div className="font-black text-sm text-purple-900">Type</div>
+                      <div className="text-lg text-purple-700 font-black">Stripper Well</div>
+                    </div>
+                    <div className="flex items-center justify-between pb-3 border-b-2 border-purple-300">
+                      <div className="font-black text-sm text-pink-900">Output</div>
+                      <div className="text-lg text-pink-700 font-black">1-2 barrels/day</div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="font-black text-sm text-blue-900">Depth</div>
+                      <div className="text-lg text-blue-700 font-black">½ mile down</div>
+                    </div>
                   </div>
                 </div>
 
