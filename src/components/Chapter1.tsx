@@ -113,96 +113,85 @@ export default function Chapter1() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-8xl md:text-9xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-orange-600 to-amber-600 drop-shadow-lg">
-            We Buy Oil
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 drop-shadow-lg leading-tight">
+            We Buy<br/>Oil
           </h2>
           <p className="text-3xl text-slate-600 font-bold">Kansas, where it all began</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-rose-200">
-            <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
-              <MapPin className="text-rose-500" size={32} />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">
-                The Journey
-              </span>
+          <div className="bg-gradient-to-br from-cyan-50 to-sky-50 rounded-3xl p-8 shadow-2xl border-2 border-cyan-300">
+            <h3 className="text-4xl font-black mb-8 flex items-center gap-3 text-cyan-700">
+              <MapPin className="text-cyan-600" size={40} />
+              The Journey
             </h3>
               <div className="space-y-4">
-                {journey.map((stop, index) => (
-                  <button
+                {journey.map((stop, index) => {
+                  const Icon = stop.icon;
+                  return (
+                  <div
                     key={index}
-                    onClick={() => setActiveLocation(index)}
-                    className={`w-full flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 transform hover:scale-105 ${
-                      activeLocation === index
-                        ? 'bg-gradient-to-r from-rose-200 to-orange-100 border-2 border-rose-500 scale-105'
-                        : 'bg-slate-100 border-2 border-transparent hover:bg-slate-200'
-                    }`}
+                    className="w-full flex items-start gap-4 p-6 rounded-2xl bg-gradient-to-r from-cyan-100 to-sky-100 border-2 border-cyan-400 shadow-lg"
                   >
-                    <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
-                        activeLocation === index
-                          ? 'bg-rose-500 text-white scale-125'
-                          : 'bg-slate-300 text-slate-600'
-                      }`}
-                    >
-                      {(() => {
-                        const Icon = stop.icon;
-                        return <Icon size={20} />;
-                      })()}
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 bg-cyan-500 text-white shadow-lg">
+                      <Icon size={24} />
                     </div>
                     <div className="text-left">
-                      <div className="font-bold text-lg text-slate-900">{stop.city}</div>
-                      <div className="text-sm text-slate-600">{stop.desc}</div>
+                      <div className="font-black text-xl text-slate-900">{stop.city}</div>
+                      <div className="text-sm text-slate-700 font-semibold">{stop.desc}</div>
                     </div>
-                  </button>
-                ))}
+                  </div>
+                  );
+                })}
               </div>
             </div>
           </div>
 
           <div className="space-y-8">
-            <div className="bg-white rounded-3xl p-6 shadow-xl border-2 border-orange-200 h-[500px]">
+            <div className="bg-gradient-to-br from-cyan-50 to-sky-100 rounded-3xl p-6 shadow-2xl border-2 border-cyan-300 h-[500px]">
               <OilPumpSpline />
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow-xl border-2 border-purple-200">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-6 shadow-2xl border-2 border-purple-300">
               <div className="flex justify-between items-center mb-4">
-                <h4 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                <h4 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
                   The Pumping Unit
                 </h4>
-                <canvas ref={canvasRef} className="rounded-lg bg-slate-50" style={{ width: '200px', height: '200px' }} />
+                <canvas ref={canvasRef} className="rounded-lg bg-white shadow-lg" style={{ width: '200px', height: '200px' }} />
               </div>
               <div className="grid grid-cols-3 gap-3">
-                <div className="p-3 bg-purple-100 rounded-xl border border-purple-300 text-center">
-                  <div className="font-bold text-xs text-purple-900">Type</div>
-                  <div className="text-sm text-purple-700 font-bold">Stripper</div>
+                <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl border-2 border-purple-400 text-center shadow-lg">
+                  <div className="font-black text-sm text-purple-900">Type</div>
+                  <div className="text-lg text-purple-700 font-black">Stripper</div>
                 </div>
-                <div className="p-3 bg-pink-100 rounded-xl border border-pink-300 text-center">
-                  <div className="font-bold text-xs text-pink-900">Output</div>
-                  <div className="text-sm text-pink-700 font-bold">1-2 bbl/day</div>
+                <div className="p-4 bg-gradient-to-br from-pink-100 to-pink-50 rounded-xl border-2 border-pink-400 text-center shadow-lg">
+                  <div className="font-black text-sm text-pink-900">Output</div>
+                  <div className="text-lg text-pink-700 font-black">1-2 bbl</div>
                 </div>
-                <div className="p-3 bg-blue-100 rounded-xl border border-blue-300 text-center">
-                  <div className="font-bold text-xs text-blue-900">Depth</div>
-                  <div className="text-sm text-blue-700 font-bold">½ mile</div>
+                <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl border-2 border-blue-400 text-center shadow-lg">
+                  <div className="font-black text-sm text-blue-900">Depth</div>
+                  <div className="text-lg text-blue-700 font-black">½ mile</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-8 border-2 border-amber-300 mb-16">
-          <p className="text-sm leading-relaxed">
-            <span className="font-black text-rose-600">Key fact:</span> NPR management "freaked out" about potential
-            oil spills. The team carried <span className="font-bold text-amber-600">$10,000 cash</span> in a briefcase
-            for the purchase.
+        <div className="relative bg-gradient-to-br from-amber-100 to-yellow-100 rounded-3xl p-10 border-2 border-amber-400 mb-16 shadow-2xl overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-300/20 rounded-full blur-3xl"></div>
+          <p className="text-lg leading-relaxed relative z-10">
+            <span className="text-4xl font-black text-amber-700 block mb-2">💰 Key Fact</span>
+            <span className="text-slate-800 font-semibold">NPR management "freaked out" about potential oil spills. The team carried </span>
+            <span className="text-2xl font-black text-amber-600">$10,000 cash</span>
+            <span className="text-slate-800 font-semibold"> in a briefcase for the purchase.</span>
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-blue-200">
-            <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
-              <Droplets className="text-blue-500" size={32} />
-              <span>Types of Oil</span>
+          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-8 shadow-2xl border-2 border-sky-300">
+            <h3 className="text-4xl font-black mb-8 flex items-center gap-3 text-sky-700">
+              <Droplets className="text-sky-600" size={40} />
+              Types of Oil
             </h3>
             <div className="flex gap-3 mb-8">
               {(['sweet', 'heavy'] as const).map((type) => (
@@ -258,9 +247,9 @@ export default function Chapter1() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-amber-200">
-            <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
-              <DollarSign className="text-amber-600" size={32} />
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 shadow-2xl border-2 border-amber-300">
+            <h3 className="text-4xl font-black mb-8 flex items-center gap-3 text-amber-700">
+              <DollarSign className="text-amber-600" size={40} />
               Prices by Location
             </h3>
             <div className="space-y-4">
@@ -283,12 +272,13 @@ export default function Chapter1() {
               ))}
             </div>
 
-            <div className="mt-8 p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-400">
-              <div className="text-center">
-                <div className="text-sm text-slate-600 mb-2 font-semibold">Final Negotiated Price</div>
-                <div className="text-5xl font-black text-green-600 mb-2">$40.00</div>
-                <div className="text-sm text-slate-600 font-semibold">per barrel</div>
-                <p className="text-xs text-slate-700 mt-4 leading-relaxed">
+            <div className="relative mt-8 p-8 bg-gradient-to-br from-green-100 to-emerald-100 rounded-3xl border-2 border-green-500 shadow-xl overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-300/30 rounded-full blur-2xl"></div>
+              <div className="text-center relative z-10">
+                <div className="text-lg text-slate-700 mb-3 font-black">Final Negotiated Price</div>
+                <div className="text-7xl font-black text-green-600 mb-3 drop-shadow-lg">$40.00</div>
+                <div className="text-lg text-slate-700 font-bold mb-4">per barrel</div>
+                <p className="text-sm text-slate-800 font-semibold leading-relaxed">
                   Down from $41.83 due to $10,000 cash payment. Location matters!
                 </p>
               </div>
@@ -296,9 +286,10 @@ export default function Chapter1() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-3xl p-10 border-2 border-purple-300">
-          <h3 className="text-3xl font-black mb-8 text-center text-purple-600">Who Gets Paid?</h3>
-          <div className="grid md:grid-cols-3 gap-6">
+        <div className="relative bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl p-12 border-2 border-purple-400 shadow-2xl overflow-hidden">
+          <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-purple-300/30 rounded-full blur-3xl"></div>
+          <h3 className="text-5xl font-black mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-700 drop-shadow-lg relative z-10">Who Gets Paid?</h3>
+          <div className="grid md:grid-cols-3 gap-8 relative z-10">
             {[
               { icon: UserCircle, name: 'Jason Bruns', role: 'Owner & Preacher' },
               { icon: Handshake, name: 'Business Partner', role: 'Co-investor' },
@@ -308,7 +299,7 @@ export default function Chapter1() {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-6 border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
+                  className="bg-white rounded-3xl p-8 border-2 border-purple-300 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-center"
                 >
                   <div className="flex justify-center mb-4">
                     <Icon size={48} className="text-purple-600" />
