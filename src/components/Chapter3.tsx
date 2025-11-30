@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { CokerModel } from './CokerModel';
-import { Factory, Flame, Sparkles, TrendingUp, Smartphone, Package, Pill, Wheat } from 'lucide-react';
+import { Factory, Flame, Sparkles, TrendingUp, Smartphone, Shirt, Pill, Apple, ShoppingBag } from 'lucide-react';
 
 export default function Chapter3() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -17,14 +17,14 @@ export default function Chapter3() {
   ];
 
   const oilProducts = [
-    { name: 'Phone Case', icon: Smartphone, desc: 'Plastic polymers' },
-    { name: 'Sneakers', icon: Package, desc: 'Synthetic rubber' },
-    { name: 'Clothing', icon: Package, desc: 'Polyester fibers' },
-    { name: 'Medicine', icon: Pill, desc: 'Pharmaceutical base' },
-    { name: 'Toothpaste', icon: Package, desc: 'Plastic & ingredients' },
-    { name: 'Food Pack', icon: Package, desc: 'Plastic containers' },
-    { name: 'Fertilizer', icon: Wheat, desc: 'Sulfur byproduct' },
-    { name: 'Cosmetics', icon: Sparkles, desc: 'Petroleum base' },
+    { name: 'Phone Case', icon: Smartphone, desc: 'Made from petroleum-based plastic polymers like polycarbonate and TPU. The entire casing relies on oil-derived materials for durability and flexibility.' },
+    { name: 'Sneakers', icon: ShoppingBag, desc: 'Synthetic rubber soles are made from petroleum. The cushioning foam, artificial leather, and even the glue holding it together are all oil-based products.' },
+    { name: 'Clothing', icon: Shirt, desc: 'Polyester, nylon, and acrylic fabrics are all synthetic fibers made from petroleum. Even "microfiber" athletic wear is essentially plastic derived from oil.' },
+    { name: 'Medicine', icon: Pill, desc: 'Pharmaceutical manufacturing uses petroleum as a base for many medications. The plastic pill bottles and blister packs are also oil-derived.' },
+    { name: 'Toothpaste', icon: Sparkles, desc: 'Contains petroleum-based ingredients like propylene glycol and synthetic colorants. The plastic tube packaging is also made from oil.' },
+    { name: 'Food Packaging', icon: Apple, desc: 'Plastic containers, cling wrap, and food storage bags are all made from petroleum-based polymers like polyethylene and polypropylene.' },
+    { name: 'Fertilizer', icon: TrendingUp, desc: 'Modern fertilizers use sulfur and other petroleum byproducts. The entire industrial agriculture system depends on oil-based chemicals.' },
+    { name: 'Cosmetics', icon: Sparkles, desc: 'Makeup, lotions, and perfumes contain petroleum-based ingredients like mineral oil, petrolatum, and paraffin wax for texture and preservation.' },
   ];
 
   const timeline = [
@@ -138,37 +138,30 @@ export default function Chapter3() {
             </span>
           </h3>
           <p className="text-center text-slate-700 mb-8 font-semibold text-lg">
-            Click items to discover their petroleum connections
+            Hover over items to discover their petroleum connections
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {oilProducts.map((item, index) => (
-              <button
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {oilProducts.map((item, index) => {
+              const Icon = item.icon;
+              return (
+              <div
                 key={index}
-                onClick={() => setSelectedItem(item.name)}
-                className={`p-6 rounded-2xl border-2 transition-all duration-300 transform hover:scale-110 ${
-                  selectedItem === item.name
-                    ? 'border-purple-500 bg-purple-100 scale-110 shadow-lg'
-                    : 'border-slate-300 bg-slate-50 hover:border-purple-300'
-                }`}
+                className="group relative p-6 rounded-2xl border-2 border-slate-300 bg-slate-50 hover:border-purple-500 hover:bg-purple-100 hover:scale-105 transition-all duration-300 transform cursor-pointer"
               >
                 <div className="flex justify-center mb-3">
-                  {(() => {
-                    const Icon = item.icon;
-                    return <Icon size={40} className="text-purple-600" />;
-                  })()}
+                  <Icon size={48} className="text-purple-600 group-hover:scale-110 transition-transform" />
                 </div>
-                <div className="font-bold text-sm text-center text-slate-900">{item.name}</div>
-              </button>
-            ))}
+                <div className="font-black text-base text-center text-slate-900">{item.name}</div>
+
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="font-black text-sm mb-2">{item.name}</div>
+                  <p className="text-xs leading-relaxed">{item.desc}</p>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-pink-600"></div>
+                </div>
+              </div>
+              );
+            })}
           </div>
-          {selectedItem && (
-            <div className="p-6 bg-gradient-to-r from-purple-100 to-pink-100 border-2 border-purple-400 rounded-2xl animate-fade-in">
-              <h4 className="font-black text-xl mb-2 text-purple-600">{selectedItem}</h4>
-              <p className="text-slate-800">
-                {oilProducts.find((p) => p.name === selectedItem)?.desc}
-              </p>
-            </div>
-          )}
         </div>
 
         <div className="mb-16">
