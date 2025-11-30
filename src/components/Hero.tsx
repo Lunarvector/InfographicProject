@@ -1,147 +1,79 @@
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
 import { ChevronDown } from 'lucide-react';
+import Particles from './Particles';
+import SplineBackground from './SplineBackground';
 
 export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true, antialias: true });
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    camera.position.z = 5;
-
-    const torusGeometry = new THREE.TorusGeometry(1.8, 0.6, 64, 200);
-    const torusMaterial = new THREE.MeshStandardMaterial({
-      color: 0xffa07a,
-      metalness: 0.8,
-      roughness: 0.2,
-    });
-    const torus = new THREE.Mesh(torusGeometry, torusMaterial);
-    scene.add(torus);
-
-    const sphereGeometry = new THREE.SphereGeometry(0.3, 64, 64);
-    const sphereMaterial = new THREE.MeshStandardMaterial({
-      color: 0xffd700,
-      metalness: 1,
-      roughness: 0,
-    });
-    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphere.position.z = -0.5;
-    scene.add(sphere);
-
-    const pointLight1 = new THREE.PointLight(0xffa07a, 150);
-    pointLight1.position.set(5, 5, 8);
-    scene.add(pointLight1);
-
-    const pointLight2 = new THREE.PointLight(0xffd700, 100);
-    pointLight2.position.set(-5, -5, 8);
-    scene.add(pointLight2);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
-
-    let animationFrameId: number;
-
-    const animate = () => {
-      animationFrameId = requestAnimationFrame(animate);
-
-      torus.rotation.x += 0.001;
-      torus.rotation.y += 0.002;
-      torus.rotation.z += 0.001;
-
-      torus.position.x = Math.sin(Date.now() * 0.0005) * 0.3;
-      torus.position.y = Math.cos(Date.now() * 0.0003) * 0.3;
-
-      sphere.position.x = Math.cos(Date.now() * 0.0006) * 2;
-      sphere.position.y = Math.sin(Date.now() * 0.0004) * 2;
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current.x = e.clientX / window.innerWidth;
-      mouseRef.current.y = e.clientY / window.innerHeight;
-      camera.position.x = (mouseRef.current.x - 0.5) * 2;
-      camera.position.y = -(mouseRef.current.y - 0.5) * 2;
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
-      torusGeometry.dispose();
-      torusMaterial.dispose();
-      sphereGeometry.dispose();
-      sphereMaterial.dispose();
-      renderer.dispose();
-    };
-  }, []);
-
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-blue-50">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0" />
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+      <SplineBackground />
 
-      <div className="absolute inset-0 z-0 opacity-30">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-rose-200 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-72 h-72 bg-amber-200 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-sky-200 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black z-[1]" />
+
+      <Particles
+        className="absolute inset-0 z-[2]"
+        quantity={80}
+        staticity={30}
+        ease={50}
+      />
+
+      <div className="absolute inset-0 z-[3] opacity-20">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-rose-500/30 rounded-full blur-[120px]" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-amber-500/30 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[140px]" />
       </div>
 
-      <div className="relative z-10 text-center px-4 pointer-events-none">
-        <div className="inline-block mb-8 px-8 py-3 bg-white/60 backdrop-blur-md rounded-full border border-white/40 shadow-lg">
-          <p className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-amber-500">
+      <div className="relative z-10 text-center px-4 pointer-events-none max-w-7xl mx-auto">
+        <div className="inline-block mb-8 px-8 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
+          <p className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-400 to-amber-400">
             A Planet Money Story
           </p>
         </div>
 
-        <h1 className="text-8xl md:text-9xl font-black mb-6 leading-tight tracking-tighter">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-400 to-amber-400">
+        <h1 className="text-7xl md:text-9xl lg:text-[10rem] font-black mb-8 leading-[0.9] tracking-tighter">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-400 to-amber-400 drop-shadow-[0_0_80px_rgba(251,146,60,0.5)]">
             The Black
           </span>
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-yellow-200 drop-shadow-[0_0_80px_rgba(251,191,36,0.5)] mt-2">
             Gold
           </span>
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-300 drop-shadow-[0_0_80px_rgba(34,211,238,0.5)] mt-2">
             Roller Coaster
           </span>
         </h1>
 
-        <p className="text-2xl md:text-3xl font-semibold text-slate-600 mb-4">
-          Planet Money Buys Oil
-        </p>
+        <div className="space-y-4 mb-8">
+          <p className="text-3xl md:text-4xl font-bold text-white/90 drop-shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+            Planet Money Buys Oil
+          </p>
 
-        <p className="text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed font-medium">
-          From a Kansas well to your gas tank. Experience the complete journey of one barrel of oil
-          through markets, refineries, and pipelines.
-        </p>
+          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed font-medium">
+            From a Kansas well to your gas tank. Experience the complete journey of one barrel of oil
+            through markets, refineries, and pipelines.
+          </p>
+        </div>
+
+        <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rose-500/20 via-orange-500/20 to-amber-500/20 backdrop-blur-xl rounded-full border border-white/10">
+          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          <span className="text-sm font-medium text-white/70">Interactive Experience</span>
+        </div>
       </div>
 
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none">
         <div className="flex flex-col items-center gap-3">
-          <p className="text-sm font-semibold text-slate-600">Scroll to explore</p>
+          <p className="text-sm font-semibold text-white/60 tracking-wider uppercase">Scroll to explore</p>
           <div className="animate-bounce">
-            <ChevronDown size={32} className="text-rose-400" strokeWidth={3} />
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-rose-400 via-orange-400 to-amber-400 flex items-center justify-center shadow-[0_0_40px_rgba(251,146,60,0.6)]">
+              <ChevronDown size={24} className="text-black" strokeWidth={3} />
+            </div>
           </div>
+        </div>
+      </div>
+
+      <div className="absolute top-8 left-8 z-10 pointer-events-none">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-rose-400 shadow-[0_0_20px_rgba(251,113,133,0.8)]" />
+          <div className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.8)]" />
+          <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
         </div>
       </div>
     </section>
