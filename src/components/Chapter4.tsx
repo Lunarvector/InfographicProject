@@ -35,10 +35,10 @@ export default function Chapter4() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 tracking-tight">
             Imagine a World Without Oil
           </h2>
-          <p className="text-xl text-slate-600 font-semibold">Alternate histories and possibilities</p>
+          <p className="text-2xl text-slate-600 font-bold tracking-wide">Alternate histories and possibilities</p>
         </div>
 
         <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border border-green-200">

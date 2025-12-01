@@ -55,10 +55,10 @@ export default function Chapter3() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500 tracking-tight">
             How Oil Got Into Everything
           </h2>
-          <p className="text-xl text-slate-600 font-semibold">From refinery to everyday life</p>
+          <p className="text-2xl text-slate-600 font-bold tracking-wide">From refinery to everyday life</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">

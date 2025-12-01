@@ -20,33 +20,33 @@ export default function Chapter2() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 tracking-tight">
             The Price of Oil
           </h2>
-          <p className="text-xl text-slate-600 font-semibold">How Wall Street meets Main Street</p>
+          <p className="text-2xl text-slate-600 font-bold tracking-wide">How Wall Street meets Main Street</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-white rounded-3xl p-8 shadow-xl border border-blue-200">
-            <h3 className="text-3xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
+          <div className="bg-white rounded-3xl p-10 shadow-xl border border-blue-200">
+            <h3 className="text-4xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
               The Great Debate
             </h3>
-            <div className="space-y-6">
-              <div className="p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r-2xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                <div className="font-black text-xl mb-2 text-blue-600 flex items-center gap-2">
-                  <Users size={24} />
+            <div className="space-y-8">
+              <div className="p-8 bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-500 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-102">
+                <div className="font-black text-2xl mb-4 text-blue-600 flex items-center gap-3">
+                  <Users size={28} />
                   Local Drillers
                 </div>
-                <p className="text-slate-700">
+                <p className="text-slate-700 text-lg leading-relaxed font-medium">
                   "These people trade and never see oil. They're just in it for the money."
                 </p>
               </div>
-              <div className="p-6 bg-orange-50 border-l-4 border-orange-500 rounded-r-2xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                <div className="font-black text-xl mb-2 text-orange-600 flex items-center gap-2">
-                  <Building2 size={24} />
+              <div className="p-8 bg-gradient-to-br from-orange-50 to-amber-50 border-l-4 border-orange-500 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-102">
+                <div className="font-black text-2xl mb-4 text-orange-600 flex items-center gap-3">
+                  <Building2 size={28} />
                   Wall Street Traders
                 </div>
-                <p className="text-slate-700">
+                <p className="text-slate-700 text-lg leading-relaxed font-medium">
                   Operating from the Chicago Mercantile Exchange, trading thousands of barrels with specialized slang.
                 </p>
               </div>

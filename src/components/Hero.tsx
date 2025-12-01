@@ -9,12 +9,12 @@ export default function Hero() {
         <SplineBackground />
       </div>
 
-      <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg z-[10] border border-slate-200 pointer-events-auto">
-        <p className="text-slate-700 font-semibold text-base">By: Andrew M</p>
+      <div className="absolute bottom-3 right-3 bg-black/90 backdrop-blur-sm px-5 py-2 rounded-xl shadow-2xl z-[10] border border-white/20 pointer-events-auto">
+        <p className="text-white font-black text-sm tracking-wider">BY: ANDREW M</p>
       </div>
 
       <div className="relative z-[5] text-center px-4 pointer-events-none max-w-7xl mx-auto">
-        <h1 className="text-7xl md:text-9xl lg:text-[11rem] font-black mb-12 leading-[0.85] tracking-tighter">
+        <h1 className="text-8xl md:text-[10rem] lg:text-[12rem] font-black mb-12 leading-[0.85] tracking-tighter">
           <span className="block relative inline-block">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-400 to-amber-400 relative z-10">
               The Black

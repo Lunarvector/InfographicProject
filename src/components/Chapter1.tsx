@@ -113,10 +113,10 @@ export default function Chapter1() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 tracking-tight">
             We Buy Oil
           </h2>
-          <p className="text-xl text-slate-600 font-semibold">Kansas, where it all began</p>
+          <p className="text-2xl text-slate-600 font-bold tracking-wide">Kansas, where it all began</p>
         </div>
 
         <div className="mb-16">
@@ -127,42 +127,47 @@ export default function Chapter1() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-xl">
-            <div className="grid lg:grid-cols-[1fr,2fr] gap-8">
+          <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 rounded-3xl p-10 shadow-2xl border border-purple-200">
+            <div className="grid lg:grid-cols-[1fr,2fr] gap-10">
               <div>
-                <h4 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
+                <h4 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 mb-8">
                   The Pumping Unit
                 </h4>
 
-                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl border border-purple-300 shadow-lg p-6 mb-8">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-purple-300">
-                      <div className="font-black text-sm text-purple-900">Type</div>
-                      <div className="text-lg text-purple-700 font-black">Stripper Well</div>
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl border border-purple-300 shadow-xl p-7 mb-8">
+                  <div className="space-y-5">
+                    <div className="flex items-center justify-between pb-4 border-b border-purple-300">
+                      <div className="font-black text-base text-purple-900">Type</div>
+                      <div className="text-xl text-purple-700 font-black">Stripper Well</div>
                     </div>
-                    <div className="flex items-center justify-between pb-3 border-b border-purple-300">
-                      <div className="font-black text-sm text-pink-900">Output</div>
-                      <div className="text-lg text-pink-700 font-black">1-2 barrels/day</div>
+                    <div className="flex items-center justify-between pb-4 border-b border-purple-300">
+                      <div className="font-black text-base text-pink-900">Output</div>
+                      <div className="text-xl text-pink-700 font-black">1-2 barrels/day</div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="font-black text-sm text-blue-900">Depth</div>
-                      <div className="text-lg text-blue-700 font-black">½ mile down</div>
+                      <div className="font-black text-base text-blue-900">Depth</div>
+                      <div className="text-xl text-blue-700 font-black">½ mile down</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-2xl p-6 border border-amber-300 shadow-lg">
-                  <p className="text-sm leading-relaxed">
-                    <span className="text-2xl font-black text-amber-700 block mb-2">💰 Key Fact</span>
-                    <span className="text-slate-800 font-semibold">NPR management "freaked out" about potential oil spills. The team carried </span>
-                    <span className="text-xl font-black text-amber-600">$10,000 cash</span>
-                    <span className="text-slate-800 font-semibold"> in a briefcase for the purchase.</span>
+                <div className="bg-gradient-to-br from-amber-100 via-yellow-100 to-amber-200 rounded-2xl p-7 border border-amber-300 shadow-xl">
+                  <p className="text-base leading-relaxed">
+                    <span className="text-3xl font-black text-amber-700 block mb-3">💰 Key Fact</span>
+                    <span className="text-slate-800 font-bold">NPR management "freaked out" about potential oil spills. The team carried </span>
+                    <span className="text-2xl font-black text-amber-600">$10,000 cash</span>
+                    <span className="text-slate-800 font-bold"> in a briefcase for the purchase.</span>
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center justify-center">
-                <canvas ref={canvasRef} className="rounded-2xl bg-white shadow-lg" style={{ width: '100%', height: '500px' }} />
+                <div className="w-full relative bg-gradient-to-br from-slate-900 via-purple-900/30 to-pink-900/30 rounded-3xl p-6 shadow-2xl border border-purple-400/30">
+                  <canvas ref={canvasRef} className="rounded-2xl" style={{ width: '100%', height: '520px' }} />
+                  <div className="absolute top-4 right-4 bg-purple-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <p className="text-white font-black text-xs tracking-wider">3D MODEL</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
