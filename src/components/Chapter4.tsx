@@ -35,7 +35,7 @@ export default function Chapter4() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-7xl md:text-8xl font-black mb-6 text-green-400 tracking-tight whitespace-nowrap">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-green-400 tracking-tight whitespace-nowrap">
             Imagine a World Without Oil
           </h2>
           <p className="text-2xl text-slate-600 font-bold tracking-wide">Alternate histories and possibilities</p>

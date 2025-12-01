@@ -163,11 +163,11 @@ export default function Chapter1() {
                   </div>
                 </div>
 
-                <div className="bg-purple-100/60 rounded-3xl p-8 border border-purple-300 shadow-xl">
-                  <span className="text-4xl font-black text-purple-700 block mb-4">💰 Key Fact</span>
-                  <p className="text-lg leading-relaxed font-bold text-slate-800">
+                <div className="bg-purple-100/60 rounded-2xl p-5 border border-purple-300 shadow-xl">
+                  <span className="text-lg font-black text-purple-700 block mb-2">💰 Key Fact</span>
+                  <p className="text-sm leading-relaxed font-semibold text-slate-800">
                     NPR management "freaked out" about potential oil spills. The team carried{' '}
-                    <span className="text-3xl font-black text-purple-600">$10,000 cash</span>
+                    <span className="text-base font-black text-purple-600">$10,000 cash</span>
                     {' '}in a briefcase for the purchase.
                   </p>
                 </div>
