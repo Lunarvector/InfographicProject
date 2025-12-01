@@ -61,24 +61,24 @@ export default function Chapter1() {
     scene.add(base);
 
     const supportGroup = new THREE.Group();
-    const support1Geo = new THREE.CylinderGeometry(0.08, 0.08, 3, 8);
+    const support1Geo = new THREE.CylinderGeometry(0.08, 0.08, 2.6, 8);
     const support1 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support1.position.set(-0.5, 0.3, 0);
+    support1.position.set(-0.5, 0.6, 0);
     support1.rotation.z = 0.3;
     supportGroup.add(support1);
 
     const support2 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support2.position.set(0.5, 0.3, 0);
+    support2.position.set(0.5, 0.6, 0);
     support2.rotation.z = -0.3;
     supportGroup.add(support2);
 
     const support3 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support3.position.set(-0.5, 0.3, 0);
+    support3.position.set(-0.5, 0.6, 0);
     support3.rotation.x = 0.3;
     supportGroup.add(support3);
 
     const support4 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support4.position.set(0.5, 0.3, 0);
+    support4.position.set(0.5, 0.6, 0);
     support4.rotation.x = -0.3;
     supportGroup.add(support4);
 
@@ -107,7 +107,7 @@ export default function Chapter1() {
     const extrudeSettings = { depth: 0.4, bevelEnabled: false };
     const horseHeadGeometry = new THREE.ExtrudeGeometry(horseHeadShape, extrudeSettings);
     const horseHead = new THREE.Mesh(horseHeadGeometry, orangeMaterial);
-    horseHead.position.set(2.2, 1.3, -0.2);
+    horseHead.position.set(2.3, 1.3, 0);
     horseHead.rotation.y = Math.PI / 2;
     scene.add(horseHead);
 
@@ -201,16 +201,16 @@ export default function Chapter1() {
                 <div className="bg-purple-100/60 rounded-3xl border border-purple-300 shadow-xl p-8">
                   <div className="space-y-6">
                     <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
-                      <div className="font-black text-lg text-purple-900">Type</div>
-                      <div className="text-2xl text-purple-700 font-black">Stripper Well</div>
+                      <div className="font-black text-xl text-purple-900">Type</div>
+                      <div className="text-xl text-purple-700 font-black">Stripper Well</div>
                     </div>
                     <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
-                      <div className="font-black text-lg text-purple-900">Output</div>
-                      <div className="text-2xl text-purple-700 font-black">1-2 barrels/day</div>
+                      <div className="font-black text-xl text-purple-900">Output</div>
+                      <div className="text-xl text-purple-700 font-black">1-2 barrels/day</div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="font-black text-lg text-purple-900">Depth</div>
-                      <div className="text-2xl text-purple-700 font-black">½ mile down</div>
+                      <div className="font-black text-xl text-purple-900">Depth</div>
+                      <div className="text-xl text-purple-700 font-black">½ mile down</div>
                     </div>
                   </div>
                 </div>
