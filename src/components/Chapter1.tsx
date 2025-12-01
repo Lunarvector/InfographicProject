@@ -31,7 +31,9 @@ export default function Chapter1() {
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true, antialias: true });
 
     renderer.setSize(500, 500);
-    camera.position.set(4, 3, 6);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    camera.position.set(5, 4, 7);
     camera.lookAt(0, 0, 0);
 
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -45,210 +47,337 @@ export default function Chapter1() {
     controls.autoRotateSpeed = 1.5;
 
     const orangeMat = new THREE.MeshStandardMaterial({
-      color: 0xff5722,
-      metalness: 0.4,
-      roughness: 0.6,
+      color: 0xf14e2b,
+      metalness: 0.5,
+      roughness: 0.4,
     });
 
     const grayMetal = new THREE.MeshStandardMaterial({
-      color: 0x8a8a8a,
+      color: 0xa8a8a8,
+      metalness: 0.8,
+      roughness: 0.3,
+    });
+
+    const darkGrayMetal = new THREE.MeshStandardMaterial({
+      color: 0x6a6a6a,
       metalness: 0.7,
       roughness: 0.4,
     });
 
-    const darkGrayMetal = new THREE.MeshStandardMaterial({
-      color: 0x5a5a5a,
-      metalness: 0.6,
-      roughness: 0.5,
-    });
-
     const tealBase = new THREE.MeshStandardMaterial({
-      color: 0x1a4d5c,
-      metalness: 0.3,
-      roughness: 0.7,
+      color: 0x1e5f6f,
+      metalness: 0.4,
+      roughness: 0.6,
     });
 
     const groundBase = new THREE.Mesh(
-      new THREE.BoxGeometry(9, 0.5, 2.5),
+      new THREE.BoxGeometry(10, 0.6, 3),
       tealBase
     );
-    groundBase.position.set(0, -1.5, 0);
+    groundBase.position.set(0, -1.7, 0);
+    groundBase.castShadow = true;
+    groundBase.receiveShadow = true;
     scene.add(groundBase);
 
-    const supportLeg1 = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.08, 0.08, 2.6, 8),
+    const baseSupports = new THREE.Group();
+    for (let i = 0; i < 4; i++) {
+      const x = i < 2 ? -4 : 4;
+      const z = i % 2 === 0 ? -1 : 1;
+      const support = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.15, 0.15, 0.6, 12),
+        grayMetal
+      );
+      support.position.set(x, -1.4, z);
+      support.castShadow = true;
+      baseSupports.add(support);
+    }
+    scene.add(baseSupports);
+
+    const towerBase = new THREE.Mesh(
+      new THREE.BoxGeometry(1.8, 0.4, 1.8),
       orangeMat
     );
-    supportLeg1.position.set(-0.5, 0.3, 0.45);
-    supportLeg1.rotation.z = 0.3;
+    towerBase.position.set(0, -0.9, 0);
+    towerBase.castShadow = true;
+    scene.add(towerBase);
+
+    const supportLeg1 = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.12, 3.4, 12),
+      orangeMat
+    );
+    supportLeg1.position.set(-0.7, 0.6, 0.7);
+    supportLeg1.rotation.z = 0.25;
+    supportLeg1.castShadow = true;
     scene.add(supportLeg1);
 
     const supportLeg2 = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.08, 0.08, 2.6, 8),
+      new THREE.CylinderGeometry(0.12, 0.12, 3.4, 12),
       orangeMat
     );
-    supportLeg2.position.set(0.5, 0.3, 0.45);
-    supportLeg2.rotation.z = -0.3;
+    supportLeg2.position.set(0.7, 0.6, 0.7);
+    supportLeg2.rotation.z = -0.25;
+    supportLeg2.castShadow = true;
     scene.add(supportLeg2);
 
     const supportLeg3 = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.08, 0.08, 2.6, 8),
+      new THREE.CylinderGeometry(0.12, 0.12, 3.4, 12),
       orangeMat
     );
-    supportLeg3.position.set(-0.5, 0.3, -0.45);
-    supportLeg3.rotation.z = 0.3;
+    supportLeg3.position.set(-0.7, 0.6, -0.7);
+    supportLeg3.rotation.z = 0.25;
+    supportLeg3.castShadow = true;
     scene.add(supportLeg3);
 
     const supportLeg4 = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.08, 0.08, 2.6, 8),
+      new THREE.CylinderGeometry(0.12, 0.12, 3.4, 12),
       orangeMat
     );
-    supportLeg4.position.set(0.5, 0.3, -0.45);
-    supportLeg4.rotation.z = -0.3;
+    supportLeg4.position.set(0.7, 0.6, -0.7);
+    supportLeg4.rotation.z = -0.25;
+    supportLeg4.castShadow = true;
     scene.add(supportLeg4);
 
-    for (let i = 0; i < 3; i++) {
-      const y = 0.4 + i * 0.5;
+    for (let i = 0; i < 5; i++) {
+      const y = -0.3 + i * 0.6;
+      const width = 1.6 - i * 0.25;
+
       const crossBeam1 = new THREE.Mesh(
-        new THREE.BoxGeometry(1.2 - i * 0.2, 0.06, 0.06),
+        new THREE.BoxGeometry(width, 0.08, 0.08),
         orangeMat
       );
-      crossBeam1.position.set(0, y, 0.45);
+      crossBeam1.position.set(0, y, 0.7);
+      crossBeam1.castShadow = true;
       scene.add(crossBeam1);
 
       const crossBeam2 = new THREE.Mesh(
-        new THREE.BoxGeometry(1.2 - i * 0.2, 0.06, 0.06),
+        new THREE.BoxGeometry(width, 0.08, 0.08),
         orangeMat
       );
-      crossBeam2.position.set(0, y, -0.45);
+      crossBeam2.position.set(0, y, -0.7);
+      crossBeam2.castShadow = true;
       scene.add(crossBeam2);
+
+      const crossBeam3 = new THREE.Mesh(
+        new THREE.BoxGeometry(0.08, 0.08, 1.4),
+        orangeMat
+      );
+      crossBeam3.position.set(width / 2, y, 0);
+      crossBeam3.castShadow = true;
+      scene.add(crossBeam3);
+
+      const crossBeam4 = new THREE.Mesh(
+        new THREE.BoxGeometry(0.08, 0.08, 1.4),
+        orangeMat
+      );
+      crossBeam4.position.set(-width / 2, y, 0);
+      crossBeam4.castShadow = true;
+      scene.add(crossBeam4);
     }
 
+    const topPlatform = new THREE.Mesh(
+      new THREE.BoxGeometry(1.2, 0.2, 1.2),
+      grayMetal
+    );
+    topPlatform.position.set(0, 2.1, 0);
+    topPlatform.castShadow = true;
+    scene.add(topPlatform);
+
     const pivotAssembly = new THREE.Group();
-    pivotAssembly.position.set(0, 1.6, 0);
+    pivotAssembly.position.set(0, 2.2, 0);
 
     const pivot = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.25, 0.25, 0.6, 24),
+      new THREE.CylinderGeometry(0.35, 0.35, 0.8, 32),
       grayMetal
     );
     pivot.rotation.z = Math.PI / 2;
+    pivot.castShadow = true;
     pivotAssembly.add(pivot);
 
     const beamGroup = new THREE.Group();
 
     const mainBeam = new THREE.Mesh(
-      new THREE.BoxGeometry(6, 0.35, 0.4),
+      new THREE.BoxGeometry(7, 0.45, 0.55),
       orangeMat
     );
+    mainBeam.castShadow = true;
     beamGroup.add(mainBeam);
 
     const beamTop = new THREE.Mesh(
-      new THREE.BoxGeometry(5.8, 0.15, 0.5),
+      new THREE.BoxGeometry(6.8, 0.25, 0.7),
       grayMetal
     );
-    beamTop.position.y = 0.25;
+    beamTop.position.y = 0.35;
+    beamTop.castShadow = true;
     beamGroup.add(beamTop);
+
+    for (let i = 0; i < 3; i++) {
+      const x = -2.5 + i * 2.5;
+      const connector = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.15, 0.15, 0.4, 16),
+        darkGrayMetal
+      );
+      connector.position.set(x, 0.3, 0);
+      connector.castShadow = true;
+      beamGroup.add(connector);
+    }
 
     const horseHeadShape = new THREE.Shape();
     horseHeadShape.moveTo(0, 0);
-    horseHeadShape.lineTo(0.8, 0);
-    horseHeadShape.lineTo(0.9, 0.5);
-    horseHeadShape.lineTo(0.85, 1.2);
-    horseHeadShape.lineTo(0.6, 1.7);
-    horseHeadShape.lineTo(0.1, 1.8);
-    horseHeadShape.lineTo(-0.2, 1.3);
-    horseHeadShape.lineTo(-0.2, 0.5);
+    horseHeadShape.lineTo(1.2, 0.1);
+    horseHeadShape.lineTo(1.3, 0.6);
+    horseHeadShape.lineTo(1.25, 1.4);
+    horseHeadShape.lineTo(0.9, 2.0);
+    horseHeadShape.lineTo(0.2, 2.1);
+    horseHeadShape.lineTo(-0.25, 1.6);
+    horseHeadShape.lineTo(-0.3, 0.7);
     horseHeadShape.lineTo(0, 0);
 
     const hole1 = new THREE.Path();
-    hole1.moveTo(0.15, 0.3);
-    hole1.lineTo(0.45, 0.3);
-    hole1.lineTo(0.45, 0.55);
-    hole1.lineTo(0.15, 0.55);
+    hole1.moveTo(0.25, 0.4);
+    hole1.lineTo(0.65, 0.45);
+    hole1.lineTo(0.65, 0.8);
+    hole1.lineTo(0.25, 0.75);
     horseHeadShape.holes.push(hole1);
 
     const hole2 = new THREE.Path();
-    hole2.moveTo(0.15, 0.7);
-    hole2.lineTo(0.45, 0.7);
-    hole2.lineTo(0.45, 0.95);
-    hole2.lineTo(0.15, 0.95);
+    hole2.moveTo(0.25, 1.0);
+    hole2.lineTo(0.65, 1.05);
+    hole2.lineTo(0.65, 1.4);
+    hole2.lineTo(0.25, 1.35);
     horseHeadShape.holes.push(hole2);
 
     const hole3 = new THREE.Path();
-    hole3.moveTo(0.15, 1.1);
-    hole3.lineTo(0.45, 1.1);
-    hole3.lineTo(0.45, 1.35);
-    hole3.lineTo(0.15, 1.35);
+    hole3.moveTo(0.25, 1.6);
+    hole3.lineTo(0.65, 1.65);
+    hole3.lineTo(0.65, 1.9);
+    hole3.lineTo(0.25, 1.85);
     horseHeadShape.holes.push(hole3);
 
     const horseHead = new THREE.Mesh(
-      new THREE.ExtrudeGeometry(horseHeadShape, { depth: 0.5, bevelEnabled: false }),
+      new THREE.ExtrudeGeometry(horseHeadShape, { depth: 0.6, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.05 }),
       orangeMat
     );
-    horseHead.position.set(2.8, -0.9, -0.25);
+    horseHead.position.set(3.3, -1.05, -0.3);
     horseHead.rotation.y = Math.PI / 2;
+    horseHead.castShadow = true;
     beamGroup.add(horseHead);
 
-    const counterweightBase = new THREE.Mesh(
-      new THREE.BoxGeometry(1.5, 1.2, 1.5),
+    const counterweightArm = new THREE.Mesh(
+      new THREE.BoxGeometry(0.7, 1.4, 0.7),
       orangeMat
     );
-    counterweightBase.position.set(-2.5, -0.6, 0);
+    counterweightArm.position.set(-3, -0.4, 0);
+    counterweightArm.castShadow = true;
+    beamGroup.add(counterweightArm);
+
+    const counterweightBase = new THREE.Mesh(
+      new THREE.BoxGeometry(1.8, 1.8, 1.8),
+      orangeMat
+    );
+    counterweightBase.position.set(-3, -1.5, 0);
+    counterweightBase.castShadow = true;
     beamGroup.add(counterweightBase);
 
-    const wheel1 = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.6, 0.6, 0.3, 32),
+    const counterweightTop = new THREE.Mesh(
+      new THREE.BoxGeometry(1.6, 0.3, 1.6),
       darkGrayMetal
     );
-    wheel1.position.set(-2.5, -0.6, 0.9);
+    counterweightTop.position.set(-3, -0.6, 0);
+    counterweightTop.castShadow = true;
+    beamGroup.add(counterweightTop);
+
+    const wheel1 = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.75, 0.75, 0.35, 48),
+      darkGrayMetal
+    );
+    wheel1.position.set(-3, -1.5, 1.15);
     wheel1.rotation.z = Math.PI / 2;
+    wheel1.castShadow = true;
     beamGroup.add(wheel1);
 
     const wheel2 = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.5, 0.5, 0.3, 32),
+      new THREE.CylinderGeometry(0.6, 0.6, 0.35, 48),
       grayMetal
     );
-    wheel2.position.set(-2.5, -0.6, 0.6);
+    wheel2.position.set(-3, -1.5, 0.75);
     wheel2.rotation.z = Math.PI / 2;
+    wheel2.castShadow = true;
     beamGroup.add(wheel2);
 
-    for (let i = 0; i < 12; i++) {
-      const angle = (i / 12) * Math.PI * 2;
-      const spoke1 = new THREE.Mesh(
-        new THREE.BoxGeometry(0.55, 0.04, 0.15),
+    const wheelHub = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.2, 0.2, 0.4, 24),
+      darkGrayMetal
+    );
+    wheelHub.position.set(-3, -1.5, 0.95);
+    wheelHub.rotation.z = Math.PI / 2;
+    wheelHub.castShadow = true;
+    beamGroup.add(wheelHub);
+
+    for (let i = 0; i < 16; i++) {
+      const angle = (i / 16) * Math.PI * 2;
+      const spoke = new THREE.Mesh(
+        new THREE.BoxGeometry(0.7, 0.06, 0.12),
         darkGrayMetal
       );
-      spoke1.position.set(-2.5, -0.6, 0.9);
-      spoke1.rotation.z = angle;
-      beamGroup.add(spoke1);
+      spoke.position.set(-3, -1.5, 1.15);
+      spoke.rotation.z = angle;
+      spoke.castShadow = true;
+      beamGroup.add(spoke);
     }
 
     const cable = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.03, 0.03, 5, 8),
+      new THREE.CylinderGeometry(0.05, 0.05, 6, 12),
       darkGrayMetal
     );
-    cable.position.set(3.2, -2.5, 0);
+    cable.position.set(3.8, -1, 0);
+    cable.castShadow = true;
     scene.add(cable);
 
-    const pumpBoxBase = new THREE.Mesh(
-      new THREE.BoxGeometry(0.8, 0.3, 0.8),
+    const pumpHead = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.25, 0.25, 0.4, 24),
       grayMetal
     );
-    pumpBoxBase.position.set(3.2, -1.3, 0);
+    pumpHead.position.set(3.8, 1.8, 0);
+    pumpHead.castShadow = true;
+    scene.add(pumpHead);
+
+    const pumpBoxBase = new THREE.Mesh(
+      new THREE.BoxGeometry(1.2, 0.5, 1.2),
+      tealBase
+    );
+    pumpBoxBase.position.set(3.8, -1.6, 0);
+    pumpBoxBase.castShadow = true;
     scene.add(pumpBoxBase);
+
+    const pumpBox = new THREE.Mesh(
+      new THREE.BoxGeometry(0.9, 1.5, 0.9),
+      grayMetal
+    );
+    pumpBox.position.set(3.8, -0.6, 0);
+    pumpBox.castShadow = true;
+    scene.add(pumpBox);
 
     pivotAssembly.add(beamGroup);
     scene.add(pivotAssembly);
 
-    const light1 = new THREE.DirectionalLight(0xffffff, 2);
-    light1.position.set(5, 5, 5);
+    const light1 = new THREE.DirectionalLight(0xffffff, 2.5);
+    light1.position.set(8, 10, 6);
+    light1.castShadow = true;
+    light1.shadow.mapSize.width = 2048;
+    light1.shadow.mapSize.height = 2048;
+    light1.shadow.camera.near = 0.5;
+    light1.shadow.camera.far = 50;
+    light1.shadow.camera.left = -10;
+    light1.shadow.camera.right = 10;
+    light1.shadow.camera.top = 10;
+    light1.shadow.camera.bottom = -10;
     scene.add(light1);
 
-    const light2 = new THREE.DirectionalLight(0xffa500, 1);
-    light2.position.set(-5, 3, -3);
+    const light2 = new THREE.DirectionalLight(0xff8c42, 1.2);
+    light2.position.set(-6, 4, -4);
     scene.add(light2);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
     scene.add(ambientLight);
 
     let animationFrameId: number;
@@ -259,12 +388,13 @@ export default function Chapter1() {
       angle += 0.02;
 
       const pumpCycle = Math.sin(angle);
-      beamGroup.rotation.z = pumpCycle * 0.35;
+      beamGroup.rotation.z = pumpCycle * 0.38;
 
-      cable.scale.y = 1 - pumpCycle * 0.15;
-      cable.position.y = -2.5 + pumpCycle * 0.3;
+      cable.scale.y = 1 - pumpCycle * 0.12;
+      cable.position.y = -1 + pumpCycle * 0.25;
+      pumpHead.position.y = 1.8 + pumpCycle * 0.35;
 
-      light2.intensity = 1.2 + Math.sin(angle * 2) * 0.4;
+      light2.intensity = 1.2 + Math.sin(angle * 2) * 0.5;
 
       controls.update();
       renderer.render(scene, camera);
