@@ -44,92 +44,141 @@ export default function Chapter1() {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.5;
 
-    const orangeMaterial = new THREE.MeshStandardMaterial({
-      color: 0xd97706,
-      metalness: 0.6,
-      roughness: 0.4,
+    const brownRed = new THREE.MeshStandardMaterial({
+      color: 0x8B4049,
+      metalness: 0.3,
+      roughness: 0.6,
     });
 
-    const baseGeometry = new THREE.BoxGeometry(3, 0.4, 2.5);
-    const baseMaterial = new THREE.MeshStandardMaterial({
-      color: 0x78716c,
-      metalness: 0.5,
+    const darkBrown = new THREE.MeshStandardMaterial({
+      color: 0x5A3A3A,
+      metalness: 0.4,
       roughness: 0.7,
     });
+
+    const baseMaterial = new THREE.MeshStandardMaterial({
+      color: 0x4a4a4a,
+      metalness: 0.5,
+      roughness: 0.8,
+    });
+
+    const baseGeometry = new THREE.BoxGeometry(6, 0.2, 3);
     const base = new THREE.Mesh(baseGeometry, baseMaterial);
-    base.position.y = -1.3;
+    base.position.set(0, -1.5, 0);
     scene.add(base);
 
-    const supportGroup = new THREE.Group();
-    const support1Geo = new THREE.CylinderGeometry(0.08, 0.08, 2.6, 8);
-    const support1 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support1.position.set(-0.5, 0.6, 0);
-    support1.rotation.z = 0.3;
-    supportGroup.add(support1);
+    const pumpBase = new THREE.Group();
 
-    const support2 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support2.position.set(0.5, 0.6, 0);
-    support2.rotation.z = -0.3;
-    supportGroup.add(support2);
+    const baseBlock1 = new THREE.Mesh(
+      new THREE.BoxGeometry(1.2, 0.8, 1.2),
+      brownRed
+    );
+    baseBlock1.position.set(-1.5, -0.7, 0);
+    pumpBase.add(baseBlock1);
 
-    const support3 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support3.position.set(-0.5, 0.6, 0);
-    support3.rotation.x = 0.3;
-    supportGroup.add(support3);
+    const baseBlock2 = new THREE.Mesh(
+      new THREE.BoxGeometry(0.9, 1.2, 0.9),
+      brownRed
+    );
+    baseBlock2.position.set(-0.5, -0.4, 0);
+    pumpBase.add(baseBlock2);
 
-    const support4 = new THREE.Mesh(support1Geo, orangeMaterial);
-    support4.position.set(0.5, 0.6, 0);
-    support4.rotation.x = -0.3;
-    supportGroup.add(support4);
+    const wheelGeometry = new THREE.CylinderGeometry(0.35, 0.35, 0.15, 16);
+    const wheel1 = new THREE.Mesh(wheelGeometry, darkBrown);
+    wheel1.position.set(-1.5, -0.2, 0);
+    wheel1.rotation.z = Math.PI / 2;
+    pumpBase.add(wheel1);
 
-    scene.add(supportGroup);
+    const wheel2 = new THREE.Mesh(wheelGeometry, darkBrown);
+    wheel2.position.set(-0.8, 0.3, 0);
+    wheel2.rotation.z = Math.PI / 2;
+    pumpBase.add(wheel2);
 
-    const pivotGeometry = new THREE.CylinderGeometry(0.25, 0.25, 0.5, 16);
+    const smallWheel = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.25, 0.25, 0.12, 16),
+      darkBrown
+    );
+    smallWheel.position.set(-0.2, 0.6, 0);
+    smallWheel.rotation.z = Math.PI / 2;
+    pumpBase.add(smallWheel);
+
+    scene.add(pumpBase);
+
+    const supportLeg1Geo = new THREE.CylinderGeometry(0.08, 0.08, 2.8, 8);
+    const supportLeg1 = new THREE.Mesh(supportLeg1Geo, darkBrown);
+    supportLeg1.position.set(-0.7, 0.5, 0.4);
+    supportLeg1.rotation.z = 0.35;
+    scene.add(supportLeg1);
+
+    const supportLeg2 = new THREE.Mesh(supportLeg1Geo, darkBrown);
+    supportLeg2.position.set(-0.7, 0.5, -0.4);
+    supportLeg2.rotation.z = 0.35;
+    scene.add(supportLeg2);
+
+    const supportLeg3 = new THREE.Mesh(supportLeg1Geo, darkBrown);
+    supportLeg3.position.set(0.7, 0.5, 0.4);
+    supportLeg3.rotation.z = -0.35;
+    scene.add(supportLeg3);
+
+    const supportLeg4 = new THREE.Mesh(supportLeg1Geo, darkBrown);
+    supportLeg4.position.set(0.7, 0.5, -0.4);
+    supportLeg4.rotation.z = -0.35;
+    scene.add(supportLeg4);
+
+    const pivotGeometry = new THREE.CylinderGeometry(0.3, 0.3, 0.6, 16);
     const pivot = new THREE.Mesh(pivotGeometry, baseMaterial);
-    pivot.position.set(0, 1.8, 0);
+    pivot.position.set(0, 1.9, 0);
     pivot.rotation.z = Math.PI / 2;
     scene.add(pivot);
 
-    const beamGeometry = new THREE.BoxGeometry(5, 0.3, 0.5);
-    const beam = new THREE.Mesh(beamGeometry, orangeMaterial);
-    beam.position.set(0, 1.8, 0);
+    const beamGeometry = new THREE.BoxGeometry(5.5, 0.35, 0.45);
+    const beam = new THREE.Mesh(beamGeometry, brownRed);
+    beam.position.set(0.2, 1.9, 0);
     scene.add(beam);
 
     const horseHeadShape = new THREE.Shape();
     horseHeadShape.moveTo(0, 0);
-    horseHeadShape.lineTo(0.8, 0.3);
-    horseHeadShape.lineTo(0.9, 1);
-    horseHeadShape.lineTo(0.5, 1.5);
-    horseHeadShape.lineTo(-0.2, 1.3);
-    horseHeadShape.lineTo(-0.3, 0.5);
+    horseHeadShape.lineTo(1, 0.2);
+    horseHeadShape.lineTo(1.2, 0.8);
+    horseHeadShape.lineTo(1.1, 1.4);
+    horseHeadShape.lineTo(0.6, 1.7);
+    horseHeadShape.lineTo(0, 1.5);
+    horseHeadShape.lineTo(-0.2, 0.7);
     horseHeadShape.lineTo(0, 0);
 
-    const extrudeSettings = { depth: 0.4, bevelEnabled: false };
+    const extrudeSettings = { depth: 0.5, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.05, bevelSegments: 3 };
     const horseHeadGeometry = new THREE.ExtrudeGeometry(horseHeadShape, extrudeSettings);
-    const horseHead = new THREE.Mesh(horseHeadGeometry, orangeMaterial);
-    horseHead.position.set(2.3, 1.3, -0.2);
+    const horseHead = new THREE.Mesh(horseHeadGeometry, brownRed);
+    horseHead.position.set(2.5, 1.1, -0.25);
     horseHead.rotation.y = Math.PI / 2;
     scene.add(horseHead);
 
-    const counterweightGeometry = new THREE.BoxGeometry(0.8, 1.2, 0.8);
-    const counterweightMaterial = new THREE.MeshStandardMaterial({
-      color: 0x57534e,
-      metalness: 0.7,
-      roughness: 0.3,
-    });
-    const counterweight = new THREE.Mesh(counterweightGeometry, counterweightMaterial);
-    counterweight.position.set(-2, 1.2, 0);
+    const counterweightArm = new THREE.Mesh(
+      new THREE.BoxGeometry(0.5, 0.9, 0.5),
+      brownRed
+    );
+    counterweightArm.position.set(-2.3, 1.5, 0);
+    scene.add(counterweightArm);
+
+    const counterweightGeometry = new THREE.BoxGeometry(0.9, 1.4, 0.9);
+    const counterweight = new THREE.Mesh(counterweightGeometry, brownRed);
+    counterweight.position.set(-2.3, 0.8, 0);
     scene.add(counterweight);
 
-    const cableGeometry = new THREE.CylinderGeometry(0.03, 0.03, 2, 8);
+    const cableGeometry = new THREE.CylinderGeometry(0.04, 0.04, 3, 8);
     const cableMaterial = new THREE.MeshStandardMaterial({
-      color: 0x404040,
+      color: 0x2a2a2a,
       metalness: 0.8,
       roughness: 0.2,
     });
     const cable = new THREE.Mesh(cableGeometry, cableMaterial);
-    cable.position.set(2.5, 0.5, 0);
+    cable.position.set(2.8, 0, 0);
     scene.add(cable);
+
+    const pumpBoxGeo = new THREE.BoxGeometry(0.6, 1, 0.6);
+    const pumpBox = new THREE.Mesh(pumpBoxGeo, baseMaterial);
+    pumpBox.position.set(2.8, -1, 0);
+    scene.add(pumpBox);
 
     const light1 = new THREE.DirectionalLight(0xffffff, 2);
     light1.position.set(5, 5, 5);
@@ -147,17 +196,20 @@ export default function Chapter1() {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      angle += 0.02;
+      angle += 0.018;
 
       const pumpCycle = Math.sin(angle);
-      beam.rotation.z = pumpCycle * 0.4;
-      horseHead.position.y = 1.3 + pumpCycle * 0.5;
-      counterweight.position.y = 1.2 - pumpCycle * 0.5;
-      cable.position.y = 0.5 + pumpCycle * 0.25;
+      beam.rotation.z = pumpCycle * 0.45;
+      horseHead.position.y = 1.1 + pumpCycle * 0.6;
+      counterweightArm.position.y = 1.5 - pumpCycle * 0.3;
+      counterweight.position.y = 0.8 - pumpCycle * 0.5;
+      cable.position.y = 0 + pumpCycle * 0.4;
 
-      base.rotation.y += 0.001;
+      wheel1.rotation.x += 0.02;
+      wheel2.rotation.x += 0.025;
+      smallWheel.rotation.x += 0.03;
 
-      light2.intensity = 1 + Math.sin(angle * 2) * 0.3;
+      light2.intensity = 1 + Math.sin(angle * 2) * 0.4;
 
       controls.update();
       renderer.render(scene, camera);
