@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <div ref={scrollRef} className="bg-black text-white overflow-x-hidden">
+    <div ref={scrollRef} className="bg-white text-slate-900 overflow-x-hidden">
       <Hero />
       <Chapter1 />
       <Chapter2 />

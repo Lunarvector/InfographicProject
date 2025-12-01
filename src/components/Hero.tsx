@@ -2,11 +2,11 @@ import SplineBackground from './SplineBackground';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
       <SplineBackground />
 
-      <div className="absolute bottom-6 right-6 bg-white px-6 py-3 rounded-xl shadow-2xl z-[5]">
-        <p className="text-slate-900 font-bold text-lg">By: Andrew M</p>
+      <div className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg z-[5] border border-slate-200">
+        <p className="text-slate-700 font-semibold text-base">By: Andrew M</p>
       </div>
 
       <div className="relative z-10 text-center px-4 pointer-events-none max-w-7xl mx-auto">

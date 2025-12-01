@@ -123,11 +123,11 @@ export default function Chapter1() {
           <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8">
             <OilPumpSpline />
 
-            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl shadow-2xl" style={{ backgroundColor: '#c4f4ef' }}>
+            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl" style={{ backgroundColor: '#c4f4ef' }}>
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-2xl border-2 border-purple-300">
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-xl">
             <div className="grid lg:grid-cols-[1fr,2fr] gap-8">
               <div>
                 <h4 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
