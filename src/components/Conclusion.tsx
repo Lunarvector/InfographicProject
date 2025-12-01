@@ -9,7 +9,7 @@ export default function Conclusion() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 tracking-tight">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-rose-400 tracking-tight">
             The Journey Complete
           </h2>
           <p className="text-2xl text-slate-600 font-bold tracking-wide">From Kansas well to your gas tank</p>

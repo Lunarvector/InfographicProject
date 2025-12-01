@@ -113,7 +113,7 @@ export default function Chapter1() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 tracking-tight">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-sky-400 tracking-tight">
             We Buy Oil
           </h2>
           <p className="text-2xl text-slate-600 font-bold tracking-wide">Kansas, where it all began</p>
@@ -127,42 +127,42 @@ export default function Chapter1() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 rounded-3xl p-12 shadow-2xl border border-purple-200">
+          <div className="bg-purple-50 rounded-3xl p-12 shadow-2xl border border-purple-200">
             <div className="grid lg:grid-cols-[2fr,3fr] gap-16">
               <div className="space-y-10">
-                <h4 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 mb-10 leading-tight">
+                <h4 className="text-5xl font-black text-purple-400 mb-10 leading-tight">
                   The Pumping Unit
                 </h4>
 
-                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl border border-purple-300 shadow-xl p-8">
+                <div className="bg-purple-100/60 rounded-3xl border border-purple-300 shadow-xl p-8">
                   <div className="space-y-6">
                     <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
                       <div className="font-black text-lg text-purple-900">Type</div>
                       <div className="text-2xl text-purple-700 font-black">Stripper Well</div>
                     </div>
                     <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
-                      <div className="font-black text-lg text-pink-900">Output</div>
-                      <div className="text-2xl text-pink-700 font-black">1-2 barrels/day</div>
+                      <div className="font-black text-lg text-purple-900">Output</div>
+                      <div className="text-2xl text-purple-700 font-black">1-2 barrels/day</div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="font-black text-lg text-blue-900">Depth</div>
-                      <div className="text-2xl text-blue-700 font-black">½ mile down</div>
+                      <div className="font-black text-lg text-purple-900">Depth</div>
+                      <div className="text-2xl text-purple-700 font-black">½ mile down</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-amber-100 via-yellow-100 to-amber-200 rounded-3xl p-8 border border-amber-300 shadow-xl">
-                  <span className="text-4xl font-black text-amber-700 block mb-4">💰 Key Fact</span>
+                <div className="bg-purple-100/60 rounded-3xl p-8 border border-purple-300 shadow-xl">
+                  <span className="text-4xl font-black text-purple-700 block mb-4">💰 Key Fact</span>
                   <p className="text-lg leading-relaxed font-bold text-slate-800">
                     NPR management "freaked out" about potential oil spills. The team carried{' '}
-                    <span className="text-3xl font-black text-amber-600">$10,000 cash</span>
+                    <span className="text-3xl font-black text-purple-600">$10,000 cash</span>
                     {' '}in a briefcase for the purchase.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center justify-end">
-                <div className="w-full relative bg-gradient-to-br from-slate-900 via-purple-900/30 to-pink-900/30 rounded-3xl p-8 shadow-2xl border border-purple-400/30">
+                <div className="w-full relative bg-white/90 rounded-3xl p-8 shadow-2xl border border-purple-200">
                   <canvas ref={canvasRef} className="rounded-2xl" style={{ width: '100%', height: '600px' }} />
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function Chapter1() {
 
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-10 shadow-xl border border-sky-300">
-            <h3 className="text-4xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-600">
+            <h3 className="text-4xl font-black mb-10 text-sky-400">
               Types of Oil
             </h3>
             <div className="space-y-8">
@@ -213,7 +213,7 @@ export default function Chapter1() {
           </div>
 
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-10 shadow-xl border border-amber-300">
-            <h3 className="text-4xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
+            <h3 className="text-4xl font-black mb-10 text-amber-400">
               Prices by Location
             </h3>
             <div className="space-y-5">

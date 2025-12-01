@@ -55,7 +55,7 @@ export default function Chapter3() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500 tracking-tight">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-amber-400 tracking-tight">
             How Oil Got Into Everything
           </h2>
           <p className="text-2xl text-slate-600 font-bold tracking-wide">From refinery to everyday life</p>
@@ -63,7 +63,7 @@ export default function Chapter3() {
 
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="bg-white rounded-3xl p-10 shadow-xl border border-orange-200">
-            <h3 className="text-4xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+            <h3 className="text-4xl font-black mb-8 text-orange-400">
               The CHS Coker
             </h3>
             <div className="flex justify-center mb-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border border-orange-200 shadow-xl">
@@ -85,7 +85,7 @@ export default function Chapter3() {
           </div>
 
           <div className="bg-white rounded-3xl p-10 shadow-xl border border-yellow-200">
-            <h3 className="text-4xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-amber-600">
+            <h3 className="text-4xl font-black mb-8 text-yellow-400">
               From One Barrel
             </h3>
             <div className="space-y-4">

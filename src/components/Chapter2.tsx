@@ -20,7 +20,7 @@ export default function Chapter2() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 tracking-tight">
+          <h2 className="text-7xl md:text-8xl font-black mb-6 text-cyan-400 tracking-tight">
             The Price of Oil
           </h2>
           <p className="text-2xl text-slate-600 font-bold tracking-wide">How Wall Street meets Main Street</p>
@@ -28,7 +28,7 @@ export default function Chapter2() {
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div className="bg-white rounded-3xl p-10 shadow-xl border border-blue-200">
-            <h3 className="text-4xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
+            <h3 className="text-4xl font-black mb-10 text-blue-400">
               The Great Debate
             </h3>
             <div className="space-y-8">
