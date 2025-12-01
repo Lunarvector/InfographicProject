@@ -44,51 +44,102 @@ export default function Chapter1() {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 2;
 
-    const baseGeometry = new THREE.BoxGeometry(2.5, 0.3, 2.5);
+    const orangeMaterial = new THREE.MeshStandardMaterial({
+      color: 0xd97706,
+      metalness: 0.6,
+      roughness: 0.4,
+    });
+
+    const baseGeometry = new THREE.BoxGeometry(3, 0.4, 2.5);
     const baseMaterial = new THREE.MeshStandardMaterial({
-      color: 0xc084fc,
-      metalness: 0.4,
-      roughness: 0.6,
+      color: 0x78716c,
+      metalness: 0.5,
+      roughness: 0.7,
     });
     const base = new THREE.Mesh(baseGeometry, baseMaterial);
-    base.position.y = -1.2;
+    base.position.y = -1.3;
     scene.add(base);
 
-    const poleGeometry = new THREE.CylinderGeometry(0.12, 0.12, 3.5, 16);
-    const poleMaterial = new THREE.MeshStandardMaterial({ color: 0xd8b4fe });
-    const pole = new THREE.Mesh(poleGeometry, poleMaterial);
-    pole.position.set(0, 0.5, 0);
-    scene.add(pole);
+    const supportGroup = new THREE.Group();
+    const support1Geo = new THREE.CylinderGeometry(0.08, 0.08, 3, 8);
+    const support1 = new THREE.Mesh(support1Geo, orangeMaterial);
+    support1.position.set(-0.5, 0.3, 0);
+    support1.rotation.z = 0.3;
+    supportGroup.add(support1);
 
-    const beamGeometry = new THREE.BoxGeometry(4.5, 0.25, 0.4);
-    const beamMaterial = new THREE.MeshStandardMaterial({
-      color: 0xfbbf24,
-      metalness: 0.9,
-      roughness: 0.1,
-    });
-    const beam = new THREE.Mesh(beamGeometry, beamMaterial);
-    beam.position.set(0, 2.2, 0);
+    const support2 = new THREE.Mesh(support1Geo, orangeMaterial);
+    support2.position.set(0.5, 0.3, 0);
+    support2.rotation.z = -0.3;
+    supportGroup.add(support2);
+
+    const support3 = new THREE.Mesh(support1Geo, orangeMaterial);
+    support3.position.set(-0.5, 0.3, 0);
+    support3.rotation.x = 0.3;
+    supportGroup.add(support3);
+
+    const support4 = new THREE.Mesh(support1Geo, orangeMaterial);
+    support4.position.set(0.5, 0.3, 0);
+    support4.rotation.x = -0.3;
+    supportGroup.add(support4);
+
+    scene.add(supportGroup);
+
+    const pivotGeometry = new THREE.CylinderGeometry(0.25, 0.25, 0.5, 16);
+    const pivot = new THREE.Mesh(pivotGeometry, baseMaterial);
+    pivot.position.set(0, 1.8, 0);
+    pivot.rotation.z = Math.PI / 2;
+    scene.add(pivot);
+
+    const beamGeometry = new THREE.BoxGeometry(5, 0.3, 0.5);
+    const beam = new THREE.Mesh(beamGeometry, orangeMaterial);
+    beam.position.set(0, 1.8, 0);
     scene.add(beam);
 
-    const hammerGeometry = new THREE.BoxGeometry(0.6, 1.8, 0.6);
-    const hammerMaterial = new THREE.MeshStandardMaterial({
-      color: 0xfca5a5,
+    const horseHeadShape = new THREE.Shape();
+    horseHeadShape.moveTo(0, 0);
+    horseHeadShape.lineTo(0.8, 0.3);
+    horseHeadShape.lineTo(0.9, 1);
+    horseHeadShape.lineTo(0.5, 1.5);
+    horseHeadShape.lineTo(-0.2, 1.3);
+    horseHeadShape.lineTo(-0.3, 0.5);
+    horseHeadShape.lineTo(0, 0);
+
+    const extrudeSettings = { depth: 0.4, bevelEnabled: false };
+    const horseHeadGeometry = new THREE.ExtrudeGeometry(horseHeadShape, extrudeSettings);
+    const horseHead = new THREE.Mesh(horseHeadGeometry, orangeMaterial);
+    horseHead.position.set(2.2, 1.3, -0.2);
+    horseHead.rotation.y = Math.PI / 2;
+    scene.add(horseHead);
+
+    const counterweightGeometry = new THREE.BoxGeometry(0.8, 1.2, 0.8);
+    const counterweightMaterial = new THREE.MeshStandardMaterial({
+      color: 0x57534e,
       metalness: 0.7,
+      roughness: 0.3,
+    });
+    const counterweight = new THREE.Mesh(counterweightGeometry, counterweightMaterial);
+    counterweight.position.set(-2, 1.2, 0);
+    scene.add(counterweight);
+
+    const cableGeometry = new THREE.CylinderGeometry(0.03, 0.03, 2, 8);
+    const cableMaterial = new THREE.MeshStandardMaterial({
+      color: 0x404040,
+      metalness: 0.8,
       roughness: 0.2,
     });
-    const hammer = new THREE.Mesh(hammerGeometry, hammerMaterial);
-    hammer.position.set(1.8, 1, 0);
-    scene.add(hammer);
+    const cable = new THREE.Mesh(cableGeometry, cableMaterial);
+    cable.position.set(2.5, 0.5, 0);
+    scene.add(cable);
 
-    const light1 = new THREE.DirectionalLight(0xfbbf24, 1.5);
+    const light1 = new THREE.DirectionalLight(0xffffff, 2);
     light1.position.set(5, 5, 5);
     scene.add(light1);
 
-    const light2 = new THREE.PointLight(0xfca5a5, 80);
-    light2.position.set(-4, 3, 3);
+    const light2 = new THREE.DirectionalLight(0xffa500, 1);
+    light2.position.set(-5, 3, -3);
     scene.add(light2);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
     let animationFrameId: number;
@@ -98,8 +149,9 @@ export default function Chapter1() {
       animationFrameId = requestAnimationFrame(animate);
       angle += 0.015;
       beam.rotation.z = Math.sin(angle) * 0.35;
-      hammer.position.y = 1 + Math.sin(angle) * 0.6;
-      base.position.y = -1.2 + Math.sin(angle * 0.5) * 0.05;
+      horseHead.position.y = 1.3 + Math.sin(angle) * 0.4;
+      counterweight.position.y = 1.2 - Math.sin(angle) * 0.4;
+      cable.position.y = 0.5 + Math.sin(angle) * 0.2;
       controls.update();
       renderer.render(scene, camera);
     };

@@ -14,7 +14,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-[5] text-center px-4 pointer-events-none max-w-7xl mx-auto">
-        <h1 className="text-8xl md:text-[10rem] lg:text-[12rem] font-black mb-12 leading-[0.85] tracking-tighter">
+        <h1 className="text-7xl md:text-[8rem] lg:text-[9rem] font-black mb-12 leading-[0.85] tracking-tighter">
           <span className="block relative inline-block">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-400 to-amber-400 relative z-10">
               The Black
