@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { MapPin, DollarSign, Droplets, Zap, Building2, Search, Handshake, Wheat, UserCircle, Fuel } from 'lucide-react';
 import OilPumpSpline from './OilPumpSpline';
 
@@ -32,6 +33,16 @@ export default function Chapter1() {
     renderer.setSize(500, 500);
     camera.position.set(4, 3, 6);
     camera.lookAt(0, 0, 0);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.enableZoom = true;
+    controls.enablePan = false;
+    controls.minDistance = 3;
+    controls.maxDistance = 12;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2;
 
     const baseGeometry = new THREE.BoxGeometry(2.5, 0.3, 2.5);
     const baseMaterial = new THREE.MeshStandardMaterial({
@@ -89,6 +100,7 @@ export default function Chapter1() {
       beam.rotation.z = Math.sin(angle) * 0.35;
       hammer.position.y = 1 + Math.sin(angle) * 0.6;
       base.position.y = -1.2 + Math.sin(angle * 0.5) * 0.05;
+      controls.update();
       renderer.render(scene, camera);
     };
 
@@ -130,7 +142,7 @@ export default function Chapter1() {
           <div className="bg-purple-50 rounded-3xl p-12 shadow-2xl border border-purple-200">
             <div className="grid lg:grid-cols-[2fr,3fr] gap-16">
               <div className="space-y-10">
-                <h4 className="text-5xl font-black text-purple-400 mb-10 leading-tight">
+                <h4 className="text-5xl font-black text-purple-400 mb-10 leading-tight whitespace-nowrap">
                   The Pumping Unit
                 </h4>
 
