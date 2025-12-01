@@ -42,7 +42,7 @@ export default function Chapter1() {
     controls.minDistance = 3;
     controls.maxDistance = 12;
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 2;
+    controls.autoRotateSpeed = 1.5;
 
     const orangeMaterial = new THREE.MeshStandardMaterial({
       color: 0xd97706,
@@ -107,7 +107,7 @@ export default function Chapter1() {
     const extrudeSettings = { depth: 0.4, bevelEnabled: false };
     const horseHeadGeometry = new THREE.ExtrudeGeometry(horseHeadShape, extrudeSettings);
     const horseHead = new THREE.Mesh(horseHeadGeometry, orangeMaterial);
-    horseHead.position.set(2.3, 1.3, 0);
+    horseHead.position.set(2.3, 1.3, -0.2);
     horseHead.rotation.y = Math.PI / 2;
     scene.add(horseHead);
 
@@ -147,11 +147,18 @@ export default function Chapter1() {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      angle += 0.015;
-      beam.rotation.z = Math.sin(angle) * 0.35;
-      horseHead.position.y = 1.3 + Math.sin(angle) * 0.4;
-      counterweight.position.y = 1.2 - Math.sin(angle) * 0.4;
-      cable.position.y = 0.5 + Math.sin(angle) * 0.2;
+      angle += 0.02;
+
+      const pumpCycle = Math.sin(angle);
+      beam.rotation.z = pumpCycle * 0.4;
+      horseHead.position.y = 1.3 + pumpCycle * 0.5;
+      counterweight.position.y = 1.2 - pumpCycle * 0.5;
+      cable.position.y = 0.5 + pumpCycle * 0.25;
+
+      base.rotation.y += 0.001;
+
+      light2.intensity = 1 + Math.sin(angle * 2) * 0.3;
+
       controls.update();
       renderer.render(scene, camera);
     };
@@ -184,27 +191,27 @@ export default function Chapter1() {
         </div>
 
         <div className="mb-16">
-          <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8">
+          <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8 group hover:scale-[1.02] transition-transform duration-500">
             <OilPumpSpline />
 
-            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl" style={{ backgroundColor: '#c4f4ef' }}>
+            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl animate-pulse" style={{ backgroundColor: '#c4f4ef' }}>
             </div>
           </div>
 
-          <div className="bg-purple-50 rounded-3xl p-12 shadow-2xl border border-purple-200">
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-12 shadow-2xl border border-purple-200 hover:shadow-purple-300/50 transition-all duration-500">
             <div className="grid lg:grid-cols-[2fr,3fr] gap-16">
               <div className="space-y-10">
-                <h4 className="text-5xl font-black text-purple-400 mb-10 leading-tight whitespace-nowrap">
+                <h4 className="text-5xl font-black text-purple-400 mb-10 leading-tight whitespace-nowrap hover:text-purple-500 transition-colors duration-300">
                   The Pumping Unit
                 </h4>
 
-                <div className="bg-purple-100/60 rounded-3xl border border-purple-300 shadow-xl p-8">
+                <div className="bg-purple-100/60 rounded-3xl border border-purple-300 shadow-xl p-8 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
                   <div className="space-y-6">
-                    <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
+                    <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300 hover:border-purple-400 transition-colors duration-300">
                       <div className="font-black text-xl text-purple-900">Type</div>
                       <div className="text-xl text-purple-700 font-black">Stripper Well</div>
                     </div>
-                    <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
+                    <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300 hover:border-purple-400 transition-colors duration-300">
                       <div className="font-black text-xl text-purple-900">Output</div>
                       <div className="text-xl text-purple-700 font-black">1-2 barrels/day</div>
                     </div>
@@ -215,18 +222,18 @@ export default function Chapter1() {
                   </div>
                 </div>
 
-                <div className="bg-purple-100/60 rounded-2xl p-5 border border-purple-300 shadow-xl">
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-5 border border-purple-300 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
                   <span className="text-lg font-black text-purple-700 block mb-2">💰 Key Fact</span>
                   <p className="text-sm leading-relaxed font-semibold text-slate-800">
                     NPR management "freaked out" about potential oil spills. The team carried{' '}
-                    <span className="text-base font-black text-purple-600">$10,000 cash</span>
+                    <span className="text-base font-black text-purple-600 hover:text-purple-800 transition-colors duration-200">$10,000 cash</span>
                     {' '}in a briefcase for the purchase.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center justify-end">
-                <div className="w-full relative bg-white/90 rounded-3xl p-8 shadow-2xl border border-purple-200">
+                <div className="w-full relative bg-white/90 rounded-3xl p-8 shadow-2xl border border-purple-200 hover:shadow-purple-300/50 hover:scale-[1.01] transition-all duration-500">
                   <canvas ref={canvasRef} className="rounded-2xl" style={{ width: '100%', height: '600px' }} />
                 </div>
               </div>
