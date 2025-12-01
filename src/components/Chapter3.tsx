@@ -66,7 +66,7 @@ export default function Chapter3() {
             <h3 className="text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
               The CHS Coker
             </h3>
-            <div className="flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-6 border-2 border-orange-200 shadow-xl">
+            <div className="flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-6 border border-orange-200 shadow-xl">
               <Canvas camera={{ position: [0, 0, 12], fov: 50 }} style={{ width: '100%', height: '500px' }}>
                 <ambientLight intensity={0.7} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
@@ -74,7 +74,7 @@ export default function Chapter3() {
               </Canvas>
             </div>
             <div className="space-y-3">
-              <div className="bg-orange-50 p-4 rounded-xl border-2 border-orange-300">
+              <div className="bg-orange-50 p-4 rounded-xl border border-orange-200">
                 <h4 className="font-black text-orange-600 mb-2">How It Works</h4>
                 <p className="text-sm text-slate-700">
                   Sorts hydrocarbon chains by temperature. A "post-industrial water park" separating long and short
@@ -97,7 +97,7 @@ export default function Chapter3() {
                       {item.amount}%
                     </span>
                   </div>
-                  <div className="h-5 bg-slate-200 rounded-full overflow-hidden border-2 border-slate-300 group-hover:shadow-lg transition-all">
+                  <div className="h-5 bg-slate-200 rounded-full overflow-hidden border border-slate-300 group-hover:shadow-lg transition-all">
                     <div
                       className="h-full transition-all duration-500 ease-out rounded-full"
                       style={{
@@ -109,7 +109,7 @@ export default function Chapter3() {
                 </div>
               ))}
             </div>
-            <div className="mt-6 p-4 bg-green-50 border-2 border-green-300 rounded-xl">
+            <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-xl">
               <h4 className="font-bold text-green-700 mb-1">Plus:</h4>
               <p className="text-sm text-slate-700">
                 Natural gas, propane, butane, and sulfur (for fertilizer)

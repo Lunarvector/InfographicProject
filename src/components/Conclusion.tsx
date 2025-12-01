@@ -16,7 +16,7 @@ export default function Conclusion() {
         </div>
 
         <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-3xl p-12 shadow-xl mb-16">
-          <div className="relative h-[600px] rounded-3xl overflow-hidden mb-8">
+          <div className="relative h-[450px] rounded-3xl overflow-hidden mb-8">
             <DieselCarSpline />
             <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl" style={{ backgroundColor: '#050505' }}>
             </div>

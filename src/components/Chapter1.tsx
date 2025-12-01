@@ -130,17 +130,17 @@ export default function Chapter1() {
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-xl">
             <div className="grid lg:grid-cols-[1fr,2fr] gap-8">
               <div>
-                <h4 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
+                <h4 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-6">
                   The Pumping Unit
                 </h4>
 
-                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl border-2 border-purple-400 shadow-lg p-6 mb-6">
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl border border-purple-300 shadow-lg p-6 mb-8">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b-2 border-purple-300">
+                    <div className="flex items-center justify-between pb-3 border-b border-purple-300">
                       <div className="font-black text-sm text-purple-900">Type</div>
                       <div className="text-lg text-purple-700 font-black">Stripper Well</div>
                     </div>
-                    <div className="flex items-center justify-between pb-3 border-b-2 border-purple-300">
+                    <div className="flex items-center justify-between pb-3 border-b border-purple-300">
                       <div className="font-black text-sm text-pink-900">Output</div>
                       <div className="text-lg text-pink-700 font-black">1-2 barrels/day</div>
                     </div>
@@ -151,7 +151,7 @@ export default function Chapter1() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-2xl p-6 border-2 border-amber-400 shadow-xl">
+                <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-2xl p-6 border border-amber-300 shadow-lg">
                   <p className="text-sm leading-relaxed">
                     <span className="text-2xl font-black text-amber-700 block mb-2">💰 Key Fact</span>
                     <span className="text-slate-800 font-semibold">NPR management "freaked out" about potential oil spills. The team carried </span>
@@ -174,7 +174,7 @@ export default function Chapter1() {
               Types of Oil
             </h3>
             <div className="space-y-6">
-              <div className="p-6 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl border-2 border-blue-400 shadow-lg">
+              <div className="p-6 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl border border-blue-300 shadow-lg">
                 <div className="flex items-start gap-4 mb-3">
                   <Droplets className="text-blue-600 flex-shrink-0" size={32} />
                   <div>
@@ -185,13 +185,13 @@ export default function Chapter1() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 pt-3 border-t-2 border-blue-300">
+                <div className="flex items-center gap-3 pt-3 border-t border-blue-300">
                   <Zap className="text-green-500" size={24} />
                   <span className="text-lg font-bold text-green-600">High Value</span>
                 </div>
               </div>
 
-              <div className="p-6 bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl border-2 border-orange-400 shadow-lg">
+              <div className="p-6 bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl border border-orange-300 shadow-lg">
                 <div className="flex items-start gap-4 mb-3">
                   <Fuel className="text-orange-600 flex-shrink-0" size={32} />
                   <div>
@@ -202,7 +202,7 @@ export default function Chapter1() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 pt-3 border-t-2 border-orange-300">
+                <div className="flex items-center gap-3 pt-3 border-t border-orange-300">
                   <Zap className="text-red-500" size={24} />
                   <span className="text-lg font-bold text-red-600">Lower Value</span>
                 </div>

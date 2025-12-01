@@ -1,8 +1,10 @@
 import SplineBackground from './SplineBackground';
+import DarkBackground from './DarkBackground';
 
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <DarkBackground />
       <SplineBackground />
 
       <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg z-[5] border border-slate-200">
