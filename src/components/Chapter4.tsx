@@ -41,7 +41,7 @@ export default function Chapter4() {
           <p className="text-xl text-slate-600 font-semibold">Alternate histories and possibilities</p>
         </div>
 
-        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-green-200">
+        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border border-green-200">
           <h3 className="text-4xl font-black mb-10 text-center text-slate-900">From Refinery to Your Tank</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -51,7 +51,7 @@ export default function Chapter4() {
             ].map((step, idx) => {
               const Icon = step.icon;
               return (
-              <div key={idx} className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border-2 border-blue-300 shadow-lg">
+              <div key={idx} className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border border-blue-200 shadow-lg">
                 <div className="flex justify-center mb-4">
                   <Icon size={64} className="text-blue-700" />
                 </div>
@@ -67,7 +67,7 @@ export default function Chapter4() {
           <h3 className="text-4xl font-black mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
             The Fracking Revolution
           </h3>
-          <div className="mb-8 p-6 bg-blue-50 border-2 border-blue-400 rounded-2xl">
+          <div className="mb-8 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
             <h4 className="text-2xl font-black mb-4 text-blue-600">Nick Steinsberger's Innovation</h4>
             <p className="text-slate-800 leading-relaxed font-semibold">
               Slick water fracking using soapy water instead of gel revolutionized oil extraction. The US became the
@@ -80,10 +80,10 @@ export default function Chapter4() {
               const Icon = impact.icon;
               const borderColor =
                 impact.type === 'positive'
-                  ? 'border-green-400'
+                  ? 'border-green-200'
                   : impact.type === 'negative'
-                    ? 'border-red-400'
-                    : 'border-yellow-400';
+                    ? 'border-red-200'
+                    : 'border-yellow-200';
               const bgColor =
                 impact.type === 'positive'
                   ? 'bg-green-50'
@@ -92,7 +92,7 @@ export default function Chapter4() {
                     : 'bg-yellow-50';
 
               return (
-                <div key={index} className={`${bgColor} border-2 ${borderColor} p-6 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-lg`}>
+                <div key={index} className={`${bgColor} border ${borderColor} p-6 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-lg`}>
                   <div className="flex items-start gap-4">
                     <Icon className="w-8 h-8 flex-shrink-0 mt-1" style={{
                       color: impact.type === 'positive' ? '#16a34a' : impact.type === 'negative' ? '#dc2626' : '#eab308'
@@ -231,26 +231,26 @@ export default function Chapter4() {
             The Forest Question
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white border-2 border-red-400 p-8 rounded-2xl shadow-lg">
+            <div className="bg-white border border-red-200 p-8 rounded-2xl shadow-lg">
               <h4 className="text-2xl font-black mb-4 text-red-600">Keith's Reality</h4>
               <p className="text-slate-800 mb-6 leading-relaxed">
                 Before 1900, we cut down 97% of America's original forests for wood fuel. Fossil fuels actually saved
                 our forests.
               </p>
-              <div className="bg-red-50 p-4 rounded-xl border-2 border-red-300">
+              <div className="bg-red-50 p-4 rounded-xl border border-red-200">
                 <p className="text-sm text-slate-800 font-semibold leading-relaxed">
                   Without fossils, deforestation would have left North America as barren as European wastelands.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white border-2 border-green-400 p-8 rounded-2xl shadow-lg">
+            <div className="bg-white border border-green-200 p-8 rounded-2xl shadow-lg">
               <h4 className="text-2xl font-black mb-4 text-green-700">Mo's Counter</h4>
               <p className="text-slate-800 mb-6 leading-relaxed">
                 As wood became scarce and expensive, market forces would incentivize sustainable forestry and new tree
                 growth.
               </p>
-              <div className="bg-green-50 p-4 rounded-xl border-2 border-green-300">
+              <div className="bg-green-50 p-4 rounded-xl border border-green-200">
                 <p className="text-sm text-slate-800 font-semibold leading-relaxed">
                   High resource prices → plant more trees → sustainable equilibrium emerges naturally.
                 </p>

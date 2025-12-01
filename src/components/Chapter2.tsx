@@ -53,13 +53,13 @@ export default function Chapter2() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-purple-200">
+          <div className="bg-white rounded-3xl p-8 shadow-xl border border-purple-200">
             <h3 className="text-3xl font-black mb-8">Trading Floor Slang</h3>
             <div className="space-y-4">
               {traderSlang.map((item, index) => (
                 <div
                   key={index}
-                  className="p-5 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-300 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+                  className="p-5 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-200 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -79,24 +79,24 @@ export default function Chapter2() {
           </div>
         </div>
 
-        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-purple-300">
+        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border border-purple-200">
           <h3 className="text-4xl font-black mb-8 text-center text-purple-600">
             <TrendingUp className="inline mr-3" size={40} />
             Oil Futures & Speculation
           </h3>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-300">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-200">
               <h4 className="text-2xl font-black mb-4 text-purple-600">What are Futures?</h4>
               <p className="text-slate-700 mb-6 leading-relaxed">
                 Promises for future delivery—next month, next year, even 8 years out.
               </p>
-              <div className="flex items-center gap-4 p-4 bg-white rounded-xl border-2 border-purple-300">
+              <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-purple-200">
                 <BarChart size={32} className="text-purple-600" />
                 <span className="font-black text-slate-800">1 Contract = 1,000 Barrels</span>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border-2 border-blue-300">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border border-blue-200">
               <h4 className="text-2xl font-black mb-4 text-blue-600">How Speculation Works</h4>
               <div className="space-y-3">
                 {[
@@ -117,7 +117,7 @@ export default function Chapter2() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-red-50 p-6 rounded-2xl border-2 border-red-300 transform transition-all duration-300 hover:scale-105">
+            <div className="bg-red-50 p-6 rounded-2xl border border-red-200 transform transition-all duration-300 hover:scale-105">
               <div className="flex justify-center mb-3">
                 <Scale size={32} className="text-red-600" />
               </div>
@@ -126,7 +126,7 @@ export default function Chapter2() {
                 "Excessive speculation drives up prices artificially"
               </p>
             </div>
-            <div className="bg-green-50 p-6 rounded-2xl border-2 border-green-300 transform transition-all duration-300 hover:scale-105">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200 transform transition-all duration-300 hover:scale-105">
               <div className="flex justify-center mb-3">
                 <MessageCircle size={32} className="text-green-600" />
               </div>
@@ -135,7 +135,7 @@ export default function Chapter2() {
                 "That's ridiculous—we provide market liquidity"
               </p>
             </div>
-            <div className="bg-amber-50 p-6 rounded-2xl border-2 border-amber-300 transform transition-all duration-300 hover:scale-105">
+            <div className="bg-amber-50 p-6 rounded-2xl border border-amber-200 transform transition-all duration-300 hover:scale-105">
               <div className="flex justify-center mb-3">
                 <TrendingUp size={32} className="text-amber-600" />
               </div>
@@ -177,10 +177,10 @@ export default function Chapter2() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-yellow-100 to-orange-100 rounded-3xl p-10 border-2 border-yellow-400 shadow-xl">
+        <div className="bg-gradient-to-r from-yellow-100 to-orange-100 rounded-3xl p-10 border border-yellow-300 shadow-xl">
           <h3 className="text-4xl font-black mb-8 text-center text-orange-600">Jason's Roller Coaster</h3>
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl border-2 border-yellow-400 mb-6">
+            <div className="bg-white p-8 rounded-2xl border border-yellow-300 mb-6">
               <p className="text-lg text-slate-800 mb-6 leading-relaxed font-semibold">
                 The person for whom it just barely makes economic sense to turn their well on is setting the global
                 price.
@@ -192,11 +192,11 @@ export default function Chapter2() {
                   represents the marginal cost of production.
                 </p>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <div className="flex-1 px-5 py-4 bg-red-50 border-2 border-red-300 rounded-xl font-bold text-red-700 text-center flex items-center justify-center gap-2">
+                  <div className="flex-1 px-5 py-4 bg-red-50 border border-red-200 rounded-xl font-bold text-red-700 text-center flex items-center justify-center gap-2">
                     <TrendingDown size={20} />
                     Low prices → Plug the well
                   </div>
-                  <div className="flex-1 px-5 py-4 bg-green-50 border-2 border-green-300 rounded-xl font-bold text-green-700 text-center flex items-center justify-center gap-2">
+                  <div className="flex-1 px-5 py-4 bg-green-50 border border-green-200 rounded-xl font-bold text-green-700 text-center flex items-center justify-center gap-2">
                     <TrendingUp size={20} />
                     High prices → Turn it on
                   </div>
