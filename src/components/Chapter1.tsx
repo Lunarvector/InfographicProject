@@ -431,7 +431,7 @@ export default function Chapter1() {
           <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8 group hover:scale-[1.02] transition-transform duration-500">
             <OilPumpSpline />
 
-            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl animate-pulse z-50 pointer-events-none" style={{ backgroundColor: '#c4f4ef' }}>
+            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl animate-pulse z-50" style={{ backgroundColor: '#c4f4ef' }}>
             </div>
           </div>
 
