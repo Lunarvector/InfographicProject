@@ -117,9 +117,8 @@ export default function Chapter4() {
             Could we have built our modern world without fossil fuels?
           </p>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-10 rounded-3xl border-3 border-blue-300 shadow-2xl hover:shadow-3xl transition-all duration-300">
-              <div className="bg-gradient-to-br from-blue-100 to-blue-50 p-10 rounded-3xl border-2 border-blue-400 shadow-xl">
+          <div className="grid lg:grid-cols-2 gap-10">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-3xl border-2 border-blue-300 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center gap-4 mb-8">
                   <GraduationCap size={64} className="text-blue-700" />
                   <div>
@@ -162,11 +161,9 @@ export default function Chapter4() {
                     </p>
                   </div>
                 </div>
-              </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-10 rounded-3xl border-3 border-orange-300 shadow-2xl hover:shadow-3xl transition-all duration-300">
-              <div className="bg-gradient-to-br from-orange-100 to-orange-50 p-10 rounded-3xl border-2 border-orange-400 shadow-xl">
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-8 rounded-3xl border-2 border-orange-300 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center gap-4 mb-8">
                   <Zap size={64} className="text-orange-700" />
                   <div>
@@ -226,7 +223,6 @@ export default function Chapter4() {
                     </p>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function Conclusion() {
         <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-3xl p-12 shadow-2xl border-3 border-yellow-400 mb-16">
           <div className="relative h-[600px] rounded-3xl overflow-hidden mb-8">
             <DieselCarSpline />
-            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl shadow-2xl border-2 border-slate-700" style={{ backgroundColor: '#050505' }}>
+            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl shadow-2xl" style={{ backgroundColor: '#050505' }}>
             </div>
           </div>
 
@@ -45,9 +45,9 @@ export default function Conclusion() {
             </p>
           </div>
 
-          <div className="relative h-[700px] rounded-3xl overflow-hidden mb-12">
+          <div className="relative h-[400px] rounded-3xl overflow-hidden mb-12">
             <MilkshakeSpline />
-            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl shadow-2xl border-2 border-slate-600" style={{ backgroundColor: '#2d2e32' }}>
+            <div className="absolute bottom-4 right-4 w-40 h-20 rounded-2xl shadow-2xl" style={{ backgroundColor: '#2d2e32' }}>
             </div>
           </div>
 
