@@ -61,22 +61,22 @@ export default function Chapter3() {
           <p className="text-2xl text-slate-600 font-bold tracking-wide">From refinery to everyday life</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-white rounded-3xl p-8 shadow-xl border border-orange-200">
-            <h3 className="text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+        <div className="grid lg:grid-cols-2 gap-16 mb-20">
+          <div className="bg-white rounded-3xl p-10 shadow-xl border border-orange-200">
+            <h3 className="text-4xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
               The CHS Coker
             </h3>
-            <div className="flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-6 border border-orange-200 shadow-xl">
+            <div className="flex justify-center mb-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border border-orange-200 shadow-xl">
               <Canvas camera={{ position: [0, 0, 12], fov: 50 }} style={{ width: '100%', height: '500px' }}>
                 <ambientLight intensity={0.7} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
                 <CokerModel />
               </Canvas>
             </div>
-            <div className="space-y-3">
-              <div className="bg-orange-50 p-4 rounded-xl border border-orange-200">
-                <h4 className="font-black text-orange-600 mb-2">How It Works</h4>
-                <p className="text-sm text-slate-700">
+            <div className="space-y-4">
+              <div className="bg-orange-50 p-6 rounded-xl border border-orange-200">
+                <h4 className="font-black text-orange-600 mb-3 text-lg">How It Works</h4>
+                <p className="text-base text-slate-700 leading-relaxed">
                   Sorts hydrocarbon chains by temperature. A "post-industrial water park" separating long and short
                   molecules.
                 </p>
@@ -84,8 +84,8 @@ export default function Chapter3() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 shadow-xl border border-yellow-200">
-            <h3 className="text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-amber-600">
+          <div className="bg-white rounded-3xl p-10 shadow-xl border border-yellow-200">
+            <h3 className="text-4xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-amber-600">
               From One Barrel
             </h3>
             <div className="space-y-4">

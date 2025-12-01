@@ -53,13 +53,13 @@ export default function Chapter2() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 shadow-xl border border-purple-200">
-            <h3 className="text-3xl font-black mb-8">Trading Floor Slang</h3>
-            <div className="space-y-4">
+          <div className="bg-white rounded-3xl p-10 shadow-xl border border-purple-200">
+            <h3 className="text-4xl font-black mb-10">Trading Floor Slang</h3>
+            <div className="space-y-5">
               {traderSlang.map((item, index) => (
                 <div
                   key={index}
-                  className="p-5 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-200 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+                  className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-200 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -69,7 +69,7 @@ export default function Chapter2() {
                       })()}
                       <div>
                         <div className="text-2xl font-black text-purple-600">{item.term}</div>
-                        <div className="text-sm text-slate-600 font-semibold">= {item.meaning}</div>
+                        <div className="text-base text-slate-600 font-semibold">= {item.meaning}</div>
                       </div>
                     </div>
                   </div>
@@ -79,26 +79,26 @@ export default function Chapter2() {
           </div>
         </div>
 
-        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border border-purple-200">
-          <h3 className="text-4xl font-black mb-8 text-center text-purple-600">
+        <div className="mb-20 bg-white rounded-3xl p-12 shadow-xl border border-purple-200">
+          <h3 className="text-5xl font-black mb-10 text-center text-purple-600">
             <TrendingUp className="inline mr-3" size={40} />
             Oil Futures & Speculation
           </h3>
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-200">
-              <h4 className="text-2xl font-black mb-4 text-purple-600">What are Futures?</h4>
-              <p className="text-slate-700 mb-6 leading-relaxed">
+          <div className="grid md:grid-cols-2 gap-10 mb-10">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-10 rounded-2xl border border-purple-200">
+              <h4 className="text-3xl font-black mb-5 text-purple-600">What are Futures?</h4>
+              <p className="text-slate-700 mb-6 leading-relaxed text-lg">
                 Promises for future delivery—next month, next year, even 8 years out.
               </p>
-              <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-purple-200">
+              <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-purple-200">
                 <BarChart size={32} className="text-purple-600" />
                 <span className="font-black text-slate-800">1 Contract = 1,000 Barrels</span>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border border-blue-200">
-              <h4 className="text-2xl font-black mb-4 text-blue-600">How Speculation Works</h4>
-              <div className="space-y-3">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-10 rounded-2xl border border-blue-200">
+              <h4 className="text-3xl font-black mb-5 text-blue-600">How Speculation Works</h4>
+              <div className="space-y-4">
                 {[
                   { step: 1, text: 'Futures prices go up' },
                   { step: 2, text: 'Producers withhold oil' },
@@ -109,15 +109,15 @@ export default function Chapter2() {
                     <div className="w-8 h-8 rounded-full bg-blue-500 text-white font-black flex items-center justify-center flex-shrink-0">
                       {item.step}
                     </div>
-                    <p className="text-slate-700 font-semibold pt-1">{item.text}</p>
+                    <p className="text-slate-700 font-semibold pt-1 text-base">{item.text}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-red-50 p-6 rounded-2xl border border-red-200 transform transition-all duration-300 hover:scale-105">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-red-50 p-8 rounded-2xl border border-red-200 transform transition-all duration-300 hover:scale-105">
               <div className="flex justify-center mb-3">
                 <Scale size={32} className="text-red-600" />
               </div>

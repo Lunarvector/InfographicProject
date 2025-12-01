@@ -127,64 +127,61 @@ export default function Chapter1() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 rounded-3xl p-10 shadow-2xl border border-purple-200">
-            <div className="grid lg:grid-cols-[1fr,2fr] gap-10">
-              <div>
-                <h4 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 mb-8">
+          <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 rounded-3xl p-12 shadow-2xl border border-purple-200">
+            <div className="grid lg:grid-cols-[2fr,3fr] gap-16">
+              <div className="space-y-10">
+                <h4 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 mb-10 leading-tight">
                   The Pumping Unit
                 </h4>
 
-                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl border border-purple-300 shadow-xl p-7 mb-8">
-                  <div className="space-y-5">
-                    <div className="flex items-center justify-between pb-4 border-b border-purple-300">
-                      <div className="font-black text-base text-purple-900">Type</div>
-                      <div className="text-xl text-purple-700 font-black">Stripper Well</div>
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl border border-purple-300 shadow-xl p-8">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
+                      <div className="font-black text-lg text-purple-900">Type</div>
+                      <div className="text-2xl text-purple-700 font-black">Stripper Well</div>
                     </div>
-                    <div className="flex items-center justify-between pb-4 border-b border-purple-300">
-                      <div className="font-black text-base text-pink-900">Output</div>
-                      <div className="text-xl text-pink-700 font-black">1-2 barrels/day</div>
+                    <div className="flex items-center justify-between pb-5 border-b-2 border-purple-300">
+                      <div className="font-black text-lg text-pink-900">Output</div>
+                      <div className="text-2xl text-pink-700 font-black">1-2 barrels/day</div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="font-black text-base text-blue-900">Depth</div>
-                      <div className="text-xl text-blue-700 font-black">½ mile down</div>
+                      <div className="font-black text-lg text-blue-900">Depth</div>
+                      <div className="text-2xl text-blue-700 font-black">½ mile down</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-amber-100 via-yellow-100 to-amber-200 rounded-2xl p-7 border border-amber-300 shadow-xl">
-                  <p className="text-base leading-relaxed">
-                    <span className="text-3xl font-black text-amber-700 block mb-3">💰 Key Fact</span>
-                    <span className="text-slate-800 font-bold">NPR management "freaked out" about potential oil spills. The team carried </span>
-                    <span className="text-2xl font-black text-amber-600">$10,000 cash</span>
-                    <span className="text-slate-800 font-bold"> in a briefcase for the purchase.</span>
+                <div className="bg-gradient-to-br from-amber-100 via-yellow-100 to-amber-200 rounded-3xl p-8 border border-amber-300 shadow-xl">
+                  <span className="text-4xl font-black text-amber-700 block mb-4">💰 Key Fact</span>
+                  <p className="text-lg leading-relaxed font-bold text-slate-800">
+                    NPR management "freaked out" about potential oil spills. The team carried{' '}
+                    <span className="text-3xl font-black text-amber-600">$10,000 cash</span>
+                    {' '}in a briefcase for the purchase.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-center">
-                <div className="w-full relative bg-gradient-to-br from-slate-900 via-purple-900/30 to-pink-900/30 rounded-3xl p-6 shadow-2xl border border-purple-400/30">
-                  <canvas ref={canvasRef} className="rounded-2xl" style={{ width: '100%', height: '520px' }} />
-                  <div className="absolute top-4 right-4 bg-purple-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <p className="text-white font-black text-xs tracking-wider">3D MODEL</p>
-                  </div>
+              <div className="flex items-center justify-end">
+                <div className="w-full relative bg-gradient-to-br from-slate-900 via-purple-900/30 to-pink-900/30 rounded-3xl p-8 shadow-2xl border border-purple-400/30">
+                  <canvas ref={canvasRef} className="rounded-2xl" style={{ width: '100%', height: '600px' }} />
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-8 shadow-xl border border-sky-300">
-            <h3 className="text-3xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-600">
+        <div className="grid lg:grid-cols-2 gap-16 mb-20">
+          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-10 shadow-xl border border-sky-300">
+            <h3 className="text-4xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-600">
               Types of Oil
             </h3>
-            <div className="space-y-6">
-              <div className="p-6 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl border border-blue-300 shadow-lg">
+            <div className="space-y-8">
+              <div className="p-8 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl border border-blue-300 shadow-lg">
                 <div className="flex items-start gap-4 mb-3">
                   <Droplets className="text-blue-600 flex-shrink-0" size={32} />
                   <div>
-                    <h4 className="text-2xl font-black text-blue-600 mb-2">Sweet Oil (Light Crude)</h4>
-                    <p className="text-slate-800 leading-relaxed font-semibold">
+                    <h4 className="text-2xl font-black text-blue-600 mb-3">Sweet Oil (Light Crude)</h4>
+                    <p className="text-slate-800 leading-relaxed font-semibold text-base">
                       Jason's oil is "sweet"—light crude that's more valuable because it doesn't need much processing to
                       become gasoline.
                     </p>
@@ -196,12 +193,12 @@ export default function Chapter1() {
                 </div>
               </div>
 
-              <div className="p-6 bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl border border-orange-300 shadow-lg">
+              <div className="p-8 bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl border border-orange-300 shadow-lg">
                 <div className="flex items-start gap-4 mb-3">
                   <Fuel className="text-orange-600 flex-shrink-0" size={32} />
                   <div>
-                    <h4 className="text-2xl font-black text-orange-600 mb-2">Heavy Crude</h4>
-                    <p className="text-slate-800 leading-relaxed font-semibold">
+                    <h4 className="text-2xl font-black text-orange-600 mb-3">Heavy Crude</h4>
+                    <p className="text-slate-800 leading-relaxed font-semibold text-base">
                       "Dirty and gunky"—heavy crude requires extensive processing. Less valuable but still important for
                       industrial uses.
                     </p>
@@ -215,13 +212,13 @@ export default function Chapter1() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 shadow-xl border border-amber-300">
-            <h3 className="text-3xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-10 shadow-xl border border-amber-300">
+            <h3 className="text-4xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
               Prices by Location
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-5">
               {priceData.map((item, index) => (
-                <div key={index} className="p-4 bg-white rounded-xl border-2 border-amber-300 shadow-lg">
+                <div key={index} className="p-5 bg-white rounded-xl border border-amber-300 shadow-lg">
                   <div className="flex items-center justify-between">
                     <span className="font-black text-lg text-slate-800">{item.location}</span>
                     <span className="text-2xl font-black text-amber-600">${item.price.toFixed(2)}</span>
