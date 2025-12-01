@@ -113,10 +113,10 @@ export default function Chapter1() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-7xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 drop-shadow-lg leading-tight">
-            We Buy<br/>Oil
+          <h2 className="text-6xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600">
+            We Buy Oil
           </h2>
-          <p className="text-3xl text-slate-600 font-bold">Kansas, where it all began</p>
+          <p className="text-xl text-slate-600 font-semibold">Kansas, where it all began</p>
         </div>
 
         <div className="mb-16">
@@ -169,9 +169,8 @@ export default function Chapter1() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-8 shadow-2xl border-2 border-sky-300">
-            <h3 className="text-4xl font-black mb-8 flex items-center gap-3 text-sky-700">
-              <Droplets className="text-sky-600" size={40} />
+          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-8 shadow-xl border border-sky-300">
+            <h3 className="text-3xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-600">
               Types of Oil
             </h3>
             <div className="space-y-6">
@@ -211,9 +210,8 @@ export default function Chapter1() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 shadow-2xl border-2 border-amber-300">
-            <h3 className="text-4xl font-black mb-8 flex items-center gap-3 text-amber-700">
-              <DollarSign className="text-amber-600" size={40} />
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 shadow-xl border border-amber-300">
+            <h3 className="text-3xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
               Prices by Location
             </h3>
             <div className="space-y-4">

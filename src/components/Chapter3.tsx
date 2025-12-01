@@ -55,16 +55,15 @@ export default function Chapter3() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500 drop-shadow-lg leading-tight">
-            How Oil Got<br/>Into Everything
+          <h2 className="text-5xl md:text-6xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-amber-500">
+            How Oil Got Into Everything
           </h2>
-          <p className="text-3xl text-slate-600 font-bold">From refinery to everyday life</p>
+          <p className="text-xl text-slate-600 font-semibold">From refinery to everyday life</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-orange-200">
-            <h3 className="text-3xl font-black mb-6 flex items-center gap-3">
-              <Factory className="text-orange-500" size={32} />
+          <div className="bg-white rounded-3xl p-8 shadow-xl border border-orange-200">
+            <h3 className="text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
               The CHS Coker
             </h3>
             <div className="flex justify-center mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-6 border-2 border-orange-200 shadow-xl">
@@ -85,9 +84,8 @@ export default function Chapter3() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-yellow-200">
-            <h3 className="text-3xl font-black mb-6 flex items-center gap-3">
-              <Flame className="text-yellow-500" size={32} />
+          <div className="bg-white rounded-3xl p-8 shadow-xl border border-yellow-200">
+            <h3 className="text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-amber-600">
               From One Barrel
             </h3>
             <div className="space-y-4">
@@ -120,11 +118,10 @@ export default function Chapter3() {
           </div>
         </div>
 
-        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-purple-200">
-          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3">
-            <Sparkles className="text-purple-500" size={40} />
+        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border border-purple-200">
+          <h3 className="text-4xl font-black mb-8 text-center">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-              Oil Is In<br/>Everything
+              Oil Is In Everything
             </span>
           </h3>
           <p className="text-center text-slate-700 mb-8 font-semibold text-lg">

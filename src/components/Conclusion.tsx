@@ -9,10 +9,10 @@ export default function Conclusion() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-8xl md:text-9xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 drop-shadow-lg">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600">
             The Journey Complete
           </h2>
-          <p className="text-3xl text-slate-600 font-bold">From Kansas well to your gas tank</p>
+          <p className="text-xl text-slate-600 font-semibold">From Kansas well to your gas tank</p>
         </div>
 
         <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-3xl p-12 shadow-xl mb-16">

@@ -35,10 +35,10 @@ export default function Chapter4() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 drop-shadow-lg leading-tight">
-            Imagine a World<br/>Without Oil
+          <h2 className="text-5xl md:text-6xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
+            Imagine a World Without Oil
           </h2>
-          <p className="text-3xl text-slate-600 font-bold">Alternate histories and possibilities</p>
+          <p className="text-xl text-slate-600 font-semibold">Alternate histories and possibilities</p>
         </div>
 
         <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-green-200">
@@ -63,9 +63,8 @@ export default function Chapter4() {
           </div>
         </div>
 
-        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border-2 border-blue-300">
-          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3 text-blue-700">
-            <Wind className="text-blue-500" size={40} />
+        <div className="mb-16 bg-white rounded-3xl p-10 shadow-xl border border-blue-300">
+          <h3 className="text-4xl font-black mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
             The Fracking Revolution
           </h3>
           <div className="mb-8 p-6 bg-blue-50 border-2 border-blue-400 rounded-2xl">
@@ -227,9 +226,8 @@ export default function Chapter4() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-3xl p-10 border-2 border-green-400 shadow-xl">
-          <h3 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3 text-green-700">
-            <Trees className="text-green-600" size={40} />
+        <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-3xl p-10 border border-green-400 shadow-xl">
+          <h3 className="text-4xl font-black mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
             The Forest Question
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
